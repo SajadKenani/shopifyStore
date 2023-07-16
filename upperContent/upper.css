@@ -1,0 +1,37 @@
+.myDiv{
+    background-color: rgb(43, 138, 255);
+    height: 180px;
+    width: 125%;
+    margin-bottom: -80px;
+    box-shadow: 0px 4px 3px rgba(135, 135, 135, 0.605);
+}
+.mySearchBar-inp{
+    width: 500px;
+    height: 40px;
+    margin-left: 300px;
+    margin-right: -45px;
+    margin-top: 40px;
+    padding-left: 40px;
+    border: none;
+    outline: none;
+    box-shadow: 3px 3px rgb(104, 104, 104);
+}
+.logo-lgo{
+    color: aliceblue;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 40px;
+    font-weight: 200;
+    text-shadow: 2px 2px rgb(104, 104, 104);
+    display: flex;
+    justify-content: center;
+    margin-left: -50px;
+    margin-bottom: -20px;
+}
+.myButton-btn{
+    margin-top: -10px;
+    margin-left: -455px;
+    width: 40px;
+    height: 32px;
+    border-color: rgb(255, 255, 255);
+    color: aliceblue;
+}

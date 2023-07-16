@@ -1,0 +1,99 @@
+.myOptionDiv-div{
+    justify-items: center;
+    margin-top: 50px;
+    margin-bottom: 140px;
+
+}
+.mainSelect-div{
+    display: grid;
+    width: 100px;
+    height: 30px;
+    margin-left: 408px;
+    margin-top: 5px;
+    border: none;
+    border-radius: 10px;
+    margin-top:-135px ;
+    margin-bottom: 85px;
+}
+.mainSort-div{
+    display: grid;
+    width: 120px;
+    height: 30px;
+    margin-left: 670px;
+    margin-top: -135px;
+    margin-bottom: 85px;
+}
+.mainAlpha-div{
+    display: grid;
+    width: 120px;
+    height: 30px;
+    margin-left: 789px;
+    margin-top: -135px;
+    margin-bottom: 85px;
+}
+.mainTime-div{
+    display: grid;
+    width: 150px;
+    height: 30px;
+    margin-left: 789px;
+    margin-top: -135px;
+    margin-bottom: 85px;
+
+}
+.mainPrice-div{
+    display: grid;
+    width: 100px;
+    height: 30px;
+    margin-left: 505px;
+    margin-top: -135px;
+    margin-bottom: -7px;
+  
+}
+.mainPeriod-div{
+    display: grid;
+    width: 150px;
+    height: 30px;
+    margin-left: 507px;
+    margin-top: -135px;
+    margin-bottom: 37px;
+    
+}
+.mainOption-opt{
+    cursor: pointer;
+    margin-left: 190px;
+    justify-content: center;
+    text-decoration: none;
+    border-color: rgb(49, 142, 255);
+    color: rgb(255, 255, 255);
+}
+.mainSelectOptions-opt{
+    cursor: pointer;
+    display: flex;
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    background-color: rgb(49, 142, 255);
+    border-color: rgb(49, 142, 255);
+    padding-left: 20px;
+    border: none;
+
+
+}
+.mainPriceOption-opt{
+    cursor: pointer;
+    display: flex;
+    text-decoration: none;
+    background-color: rgb(49, 142, 255);
+    border-color: rgb(49, 142, 255);
+    color: aliceblue;
+    padding-left: 10px;
+
+}
+.mainPeriodOption-opt{
+    cursor: pointer;
+    display: flex;
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    background-color: rgb(49, 142, 255);
+    border-color: rgb(49, 142, 255);
+    padding-left: 10px;
+}
