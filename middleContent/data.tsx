@@ -1,36 +1,66 @@
-import React, { useState } from 'react';
-import {myFinalData} from "../addedCard/addedCard"
+import {finishedName} from "../addedCard/addedCard";
+import {finishedPrice} from "../addedCard/addedCard";
+import {finishedImage} from "../addedCard/addedCard";
+import { finishedPeriod } from '../addedCard/addedCard';
+import HeadsetImage from "./images/headphone-transparent-background.png";
+import LaptopImage from "./images/RWUphA.png";
+import MouseImage from "./images/41GSkwIhASL._AC_UF894,1000_QL80_.jpg";
+import KeyboardImage from "./images/keynoard.jpg";
+import TVimages from "./images/tv-flat.jpg";
+import ComputerImage from "./images/computer.jpg";
+import MobileImage from "./images/mobile.jpg";
+import ChargerImage from "./images/charger.jpg";
+import MousePadImage from "./images/MousePad.jpg";
+import MonitorImage from "./images/Monitor.webp";
+import HeadPhonesImage from "./images/HeadPhones.jpg";
+import AripodImage from "./images/airpods.png";
 
-
-const name =""
-
-if(myFinalData[0] === ""){
-localStorage.setItem(name, myFinalData[0].toString());
-console.log(myFinalData[0])
+if(finishedName !== ""){
+localStorage.setItem("finalName", finishedName === null ?  "": finishedName.toString())}
+if(finishedPrice !== "")
+{localStorage.setItem("finalPrice", finishedPrice === null ?  "": finishedPrice.toString())}
+if(finishedImage !== ""){
+localStorage.setItem("finalImage", finishedImage === null ?  "": finishedImage.toString())
+}
+type myData = {
+    name: String|undefined,
+    price: String|undefined,
+    priceMarginTop: String,
+    priceMarginBottom: String,
+    image: String|undefined,
+    imageWidth: String,
+    imageHeight: String,
+    imageMarginBottom: String,
+    period: String, //in months,
+}
+let myImportedData = ():myData[] => {
+    let myArray:myData[] = []
+   for(let i = 0; i < (finalName?.split(",").slice(1)?.length === undefined ? 1 : finalName?.split(",").slice(1)?.length); i++)
+     (myArray.push({
+        name: finalName?.split(",").slice(1)[i] !== undefined ? finalName?.split(",").slice(1)[i] : '',
+        price: finalPrice?.split(",").slice(1)[i] !== undefined ? finalPrice?.split(',').slice(1)[i] : '',
+        priceMarginTop: '150',
+        priceMarginBottom: '-160',
+        image: finalImage?.split(",").slice(1)[i] !== undefined ? finalImage?.split(',').slice(1)[i] : '',
+        imageWidth: '140',
+        imageHeight: '120',
+        imageMarginBottom: '-100',
+        period: finishedPeriod !== null ? finishedPeriod : '0', //in months
+}))
+return myArray
 }
 
+export const finalName = localStorage.getItem("finalName");
+export const finalPrice = localStorage.getItem("finalPrice");
+export const finalImage = localStorage.getItem("finalImage");
 
-
-
-let myImportedData = {
-    name: localStorage.getItem(name),
-    price: myFinalData[1]?.toString(),
-    priceMarginTop: '150',
-    priceMarginBottom: '-160',
-    image: myFinalData[0]?.toString(),
-    imageWidth: '140',
-    imageHeight: '120',
-    imageMarginBottom: '-100',
-    period: "1", //in months
-}
-
-const data = [
+const data:myData[] = [
 { 
     name: "Headset",
     price: '100',
     priceMarginTop: '150',
     priceMarginBottom: '-160',
-    image: "https://www.downloadclipart.net/large/headphone-transparent-background.png",
+    image: HeadsetImage,
     imageWidth: '120',
     imageHeight: '120',
     imageMarginBottom: '-100',
@@ -41,7 +71,7 @@ const data = [
     price: '1000',
     priceMarginTop: '150',
     priceMarginBottom: '-160',
-    image: "https://img-prod-cms-rt-microsoft-com.akamaized.net/cms/api/am/imageFileData/RWUphA?ver=e7f7",
+    image: LaptopImage,
     imageWidth: '140',
     imageHeight: '90',
     imageMarginBottom: '-100',
@@ -52,7 +82,7 @@ const data = [
     price: '70',
     priceMarginTop: '150',
     priceMarginBottom: '-160',
-    image: "https://m.media-amazon.com/images/I/41GSkwIhASL._AC_UF894,1000_QL80_.jpg",
+    image: MouseImage,
     imageWidth: '140',
     imageHeight: '100',
     imageMarginBottom: '-100',
@@ -63,7 +93,7 @@ const data = [
     price: '30',
     priceMarginTop: '150',
     priceMarginBottom: '-160',
-    image: "https://m.media-amazon.com/images/I/71NMtTQkYUL._AC_UF894,1000_QL80_.jpg",
+    image: KeyboardImage,
     imageWidth: '140',
     imageHeight: '110',
     imageMarginBottom: '-100',
@@ -74,7 +104,7 @@ const data = [
     price: '500',
     priceMarginTop: '150',
     priceMarginBottom: '-160',
-    image: "https://images.wisegeek.com/tv-flat.jpg",
+    image: TVimages,
     imageWidth: '140',
     imageHeight: '110',
     imageMarginBottom: '-100',
@@ -85,7 +115,7 @@ const data = [
     price: '2000',
     priceMarginTop: '150',
     priceMarginBottom: '-160',
-    image: "https://media.istockphoto.com/id/927961530/photo/the-modern-computer.jpg?s=612x612&w=0&k=20&c=oTpuaBRqtYejGQHiWMJG4rXl8FhVEHWRIZprmXp4ZPU=",
+    image: ComputerImage,
     imageWidth: '140',
     imageHeight: '110',
     imageMarginBottom: '-110',
@@ -96,7 +126,7 @@ const data = [
     price: '900',
     priceMarginTop: '150',
     priceMarginBottom: '-160',
-    image: "https://items.s1.citilink.ru/1912004_v01_b.jpg",
+    image: MobileImage,
     imageWidth: '90',
     imageHeight: '120',
     imageMarginBottom: '-100',
@@ -107,7 +137,7 @@ const data = [
     price: '10',
     priceMarginTop: '150',
     priceMarginBottom: '-160',
-    image: "https://m.media-amazon.com/images/I/51gFDOCj+rS._AC_UF1000,1000_QL80_.jpg",
+    image: ChargerImage,
     imageWidth: '120',
     imageHeight: '110',
     imageMarginBottom: '-100',
@@ -118,7 +148,7 @@ const data = [
     price: '5',
     priceMarginTop: '150',
     priceMarginBottom: '-160',
-    image: "https://m.media-amazon.com/images/I/81WQsjtppYL._AC_UF894,1000_QL80_.jpg",
+    image: MousePadImage,
     imageWidth: '120',
     imageHeight: '120',
     imageMarginBottom: '-100',
@@ -129,7 +159,7 @@ const data = [
     price: '400',
     priceMarginTop: '150',
     priceMarginBottom: '-160',
-    image: "https://i0.wp.com/itportal.co.in/wp-content/uploads/2022/11/a5-155.jpg?fit=1500%2C1500&ssl=1",
+    image: MonitorImage,
     imageWidth: '130',
     imageHeight: '120',
     imageMarginBottom: '-100',
@@ -140,7 +170,7 @@ const data = [
     price: '30',
     priceMarginTop: '150',
     priceMarginBottom: '-160',
-    image: "https://m.media-amazon.com/images/I/71LP40TtRHL._AC_UF894,1000_QL80_.jpg",
+    image: HeadPhonesImage,
     imageWidth: '120',
     imageHeight: '120',
     imageMarginBottom: '-100',
@@ -151,24 +181,13 @@ const data = [
     price: '200',
     priceMarginTop: '150',
     priceMarginBottom: '-160',
-    image: "https://www.si.com/.image/c_fit%2Ccs_srgb%2Cq_auto:good%2Cw_620/MTg4ODk3NDA2Mjc0Nzc0NTYw/_apple-airpods-pro.png",
+    image: AripodImage,
     imageWidth: '140',
     imageHeight: '120',
     imageMarginBottom: '-100',
     period: '2', //in months
 },
-{
-    name: myFinalData[0],
-    price: myFinalData[1],
-    priceMarginTop: '150',
-    priceMarginBottom: '-160',
-    image: myFinalData[0],
-    imageWidth: '140',
-    imageHeight: '120',
-    imageMarginBottom: '-100',
-    period: "1", //in months
-}
     
 ]
 
-export const Data = data
+export const Data = data.concat(myImportedData())

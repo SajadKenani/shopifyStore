@@ -3,6 +3,7 @@ import { Data } from "./data";
 import { Link } from "react-router-dom";
 import { useState } from "react"
 import { Container } from "@mui/material";
+import { message } from "../upperContent/upper";
 
 var MyInfo = [0];
 const getInfo = (info:object) => { MyInfo.splice(0); (Object.values(info)).map((a) => {MyInfo.push(a)}); }
@@ -18,7 +19,10 @@ type data = {
     imageHeight: String,
     imageMarginBottom: String,
     period: String, //in months,
-}
+};
+
+const myData: any[][] = [];
+myData.push(Data);
 
 let myFirstValue = 0;
 let mySecondValue = 0;
@@ -39,6 +43,9 @@ export const MiddleContent = () => {
   const [myPeriod, usemyperiod] = useState(false);
   const [alphabeticalSort, usealphabeticalsort] = useState(0);
   const [periodicSort, useperiodicsort] = useState(0);
+  const [mymessage, usemymessage] = useState([""])
+
+
 
   // All option
   const showAll = () => {
@@ -179,15 +186,14 @@ export const MiddleContent = () => {
 
 return(
 
-//To display the cards
 <div >{/* Main options*/}
 
-    <Container className="myOptionDiv-div">
+    <div className="myOptionDiv-div">
     <a className="mainOption-opt" onClick={showAll}>All</a>  
     <a className="mainOption-opt" onClick={() => select ? workForSelect() : showSelect()}>&#11167; Select</a>
     <a className="mainOption-opt" onClick={() => sort ?  workForSelect() : showSort()}> &#11167; Sort</a>
     <Link className="mainOption-opt" to={"/addYourCard"}><a>Add</a></Link>
-    </Container>
+    </div>
 
     {/* To shows the options of select. */}
     {select && <div className="mainSelect-div card" >
@@ -233,9 +239,9 @@ return(
     {/* To render the page!*/}
     {allshow && <>{useallshow(false)}</>}
 
-<Container className="" style={{ marginTop: 20+"px"}}>
-  <div className="row">  
- {Data
+<Container className="myCard" style={{ marginTop: 20+"px"}}>
+  <div className="row theRow">  
+ {myData[0]
  // To sort the cards according to their period
  .sort((a, b) => periodicSort * (Number(a.period) - Number(b.period)))
 
@@ -252,18 +258,19 @@ return(
   (Number(data.period) > 0) && (Number(data.period) < 10000))
 
  // To display the cards...
- .map((a:data) => (
-    <div className="col-2" >
-     {<div className="card">
+ .map((a:data, b) => (
+    <div className="maincard col-2" key={"divOne "+b}>
+     {<div className="card" key={"divTwo "+b}>
       <Link to="/card" style={{textDecoration: "none", color: "black"}}>
-        <div className="card-body text-left" onClick={() => getInfo([a.name, a.price, a.image, a.period])}>     
+        <div className="card-body text-left" key={"divThree "+b} onClick={() => getInfo([a.name, a.price, a.image, a.period])}>     
           <img className="img-thumbnail rounded" style={{justifyContent: "flex"}} src={`${a.image}`} />
-          <p className="card-body text-dark" 
+          <p className="card-body text-dark" key={"POne "+b}
           style={{marginTop: 15+"px", marginBottom: -20+"px",marginLeft:-10+"px",paddingLeft: 10+"px",paddingRight: 0+"px",fontSize:"13px"}}>
           {a.name} 
-          <p>Price: {a.price}$ 
-          <p className="text-secondary">{Number(a.period) >= 12 ? <p> Released {(Number(a.period) * 0.0833334).toFixed()} years ago </p> 
-          : <p>Released {a.period} months ago </p>}
+          <p key={"PTwo "+b}>Price: {a.price}$ 
+          <p key={"PThree "+b} className="text-secondary">{Number(a.period) >= 12 && <p> Released {(Number(a.period) * 0.0833334).toFixed()} years ago </p>}
+          <p key={"PFour "+b} className="text-secondary">{Number(a.period) < 12 && Number(a.period) > 0.9 && <p> Released {(Number(a.period)).toFixed()} months ago </p>}
+          <p key={"PFive "+b} className="text-secondary">{Number(a.period) < 1 && <p> Released Recently </p>}</p></p>
           </p></p></p>   
         </div> 
       </Link>

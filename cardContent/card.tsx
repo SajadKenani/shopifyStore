@@ -27,13 +27,13 @@ export const Card = () => {
     const priced = price.substring(0, price.length - 1)
     const image = JSON.stringify(localStorage.getItem("myArrThree")).split(`"`)[2];
     const imaged = image.substring(0, image.length - 1)
-    
+
 return (
     <div>
         <div className="myOuterDiv-div">
         <img className="cardImage-img" src={`${imaged}`}/>
         <div>Name: {named}</div>
-        <div>Price: {priced}</div>
+        <div>Price: {priced}$</div>
         <button onClick={() => console.log(image)}></button>
         </div>
       
