@@ -29,12 +29,12 @@ export const Card = () => {
     const imaged = image.substring(0, image.length - 1)
 
 return (
-    <div>
-        <div className="myOuterDiv-div">
+    <div className="myOuterDiv-div">
+        <div className="myInnterDiv-div">
         <img className="cardImage-img" src={`${imaged}`}/>
-        <div>Name: {named}</div>
-        <div>Price: {priced}$</div>
-        <button onClick={() => console.log(image)}></button>
+        <div className="myPara-para">Name: {named}</div>
+        <div className="myPara-para">Price: {priced}$</div>
+        <button className="myButton" onClick={() => console.log(image)}>Buy: {priced}$</button>
         </div>
       
     </div>

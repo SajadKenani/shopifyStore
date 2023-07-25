@@ -6,19 +6,18 @@
     box-shadow: 0px 4px 3px rgba(135, 135, 135, 0.605);
     
 }
-.content{
-    display: flex;
-    justify-content: center;
-}
 .mySearchBar-inp{
-    width: 40%;
+    width: 42%;
     height: 40px;
-    padding-left: 5%;
+    padding-left: 60px;
     border: none;
     outline: none;
     box-shadow: 3px 3px rgb(104, 104, 104);
     margin: 0 auto;
     margin-top: 40px;
+    display: flex;
+    justify-content: center;
+  
     }
 .logo-lgo{
     color: aliceblue;
@@ -31,21 +30,36 @@
     margin-bottom: -20px;
 }
 .myButton-btn{
-    height: 40px;
-    margin-top: 40px;
-    margin-right: -50%;
-    margin-left: 43%;
+    height: 35px;
+    margin-top: -70px;
+    margin-left: 30%;
+ 
 }
-@media (max-width: 440px){
+@media (max-width: 650px){
  
     .logo-lgo{
         margin-left: -5px;
         font-size: 40px;
     }
-
- 
     .myDiv{
         width: 2400%;
     }
+    .mySearchBar-inp{
+        width: 80%;
+    }
+    .myButton-btn{
+        margin-left: 12%;
+    }
+}
+@media (max-width: 300px){
+ 
+    .logo-lgo{
+        margin-left: -5px;
+        font-size: 30px;
+    }
+    .mySearchBar-inp{
+        padding-left: 50px;
+    }
+ 
 }
 

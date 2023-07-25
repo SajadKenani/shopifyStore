@@ -10,15 +10,15 @@ const getInfo = (info:object) => { MyInfo.splice(0); (Object.values(info)).map((
 export const myArray = MyInfo;
 
 type data = {
-    name: String,
-    price: String,
-    priceMarginTop: String,
-    priceMarginBottom: String,
-    image: String,
-    imageWidth: String,
-    imageHeight: String,
-    imageMarginBottom: String,
-    period: String, //in months,
+  name: String,
+  price: String,
+  priceMarginTop: String,
+  priceMarginBottom: String,
+  image: String,
+  imageWidth: String,
+  imageHeight: String,
+  imageMarginBottom: String,
+  period: String, //in months,
 };
 
 const myData: any[][] = [];
@@ -187,57 +187,56 @@ export const MiddleContent = () => {
 return(
 
 <div >{/* Main options*/}
+  <div className="myOptionDiv-div">
+  <a className="mainOption-opt" onClick={showAll}>All</a>  
+  <a className="mainOption-opt" onClick={() => select ? workForSelect() : showSelect()}>&#11167; Select</a>
+  <a className="mainOption-opt" onClick={() => sort ?  workForSelect() : showSort()}> &#11167; Sort</a>
+  <Link className="mainOption-opt" to={"/addYourCard"}><a>Add</a></Link>
+  </div>
 
-    <div className="myOptionDiv-div">
-    <a className="mainOption-opt" onClick={showAll}>All</a>  
-    <a className="mainOption-opt" onClick={() => select ? workForSelect() : showSelect()}>&#11167; Select</a>
-    <a className="mainOption-opt" onClick={() => sort ?  workForSelect() : showSort()}> &#11167; Sort</a>
-    <Link className="mainOption-opt" to={"/addYourCard"}><a>Add</a></Link>
-    </div>
+  {/* To shows the options of select. */}
+  {select && <div className="mainSelect-div card" >
+    <a className="insideMainOptions-opt " onClick={priceOption}>Price&nbsp;&#10148; </a>
+    <a className="insideMainOptions-opt " onClick={periodOption}>Period&nbsp;&#10148; </a>
+  </div>}
 
-    {/* To shows the options of select. */}
-    {select && <div className="mainSelect-div card" >
-      <a className="insideMainOptions-opt " onClick={priceOption}>Price&nbsp;&#10148; </a>
-      <a className="insideMainOptions-opt " onClick={periodOption}>Period&nbsp;&#10148; </a>
-    </div>}
+  {/* To shows the options of sort. */}
+  {sort && <div className="mainSort-div card" >
+    <a className="insideMainOptions-opt" onClick={alphaOption}>Alphabet &#10148; </a>
+    <a className="insideMainOptions-opt" onClick={timeOption}>Time &#10148; </a>
+  </div>}
+  
+  {/* To shows the options of Alpha. */}
+  {alpha && <div className="mainAlpha-div card" >
+    <a className="insideMainOptions-opt" onClick={AZoption}>A - Z</a>
+    <a className="insideMainOptions-opt" onClick={ZAoption}>Z - A</a>
+  </div>}
 
-    {/* To shows the options of sort. */}
-    {sort && <div className="mainSort-div card" >
-      <a className="insideMainOptions-opt" onClick={alphaOption}>Alphabet &#10148; </a>
-      <a className="insideMainOptions-opt" onClick={timeOption}>Time &#10148; </a>
-    </div>}
-    
-    {/* To shows the options of Alpha. */}
-    {alpha && <div className="mainAlpha-div card" >
-      <a className="insideMainOptions-opt" onClick={AZoption}>A - Z</a>
-      <a className="insideMainOptions-opt" onClick={ZAoption}>Z - A</a>
-    </div>}
+  {/* To shows the options of Time. */}
+  {time && <div className="mainTime-div card" >
+    <a className="insideMainOptions-opt" onClick={OldToNew}>Old To New</a>
+    <a className="insideMainOptions-opt" onClick={NewToOld}>New To Old</a>
+  </div>}
 
-    {/* To shows the options of Time. */}
-    {time && <div className="mainTime-div card" >
-      <a className="insideMainOptions-opt" onClick={OldToNew}>Old To New &#10148; </a>
-      <a className="insideMainOptions-opt" onClick={NewToOld}>New To Old &#10148; </a>
-    </div>}
+  {/* To shows the options of price inside select option. */}
+  {price && <div className="mainPrice-div card">
+    <a className="insideMainOptions-opt" onClick={PriceOptionOne}> 0 - 100$</a>
+    <a className="insideMainOptions-opt" onClick={PriceOptionTwo}> 100$ - 1k</a>
+    <a className="insideMainOptions-opt" onClick={PriceOptionThree}> 1k - 10k</a>
+    <a className="insideMainOptions-opt" onClick={PriceOptionFour}> 10k - 50k</a>
+    <a className="insideMainOptions-opt" onClick={PriceOptionFive}> 50k - 100k</a>
+  </div>}
 
-    {/* To shows the options of price inside select option. */}
-    {price && <div className="mainPrice-div card">
-      <a className="insideMainOptions-opt" onClick={PriceOptionOne}> 0 - 100$</a>
-      <a className="insideMainOptions-opt" onClick={PriceOptionTwo}> 100$ - 1k</a>
-      <a className="insideMainOptions-opt" onClick={PriceOptionThree}> 1k - 10k</a>
-      <a className="insideMainOptions-opt" onClick={PriceOptionFour}> 10k - 50k</a>
-      <a className="insideMainOptions-opt" onClick={PriceOptionFive}> 50k - 100k</a>
-    </div>}
+  {/* To shows the options of period inside select option. */}
+  {period && <div className="mainPeriod-div card">
+    <a className="insideMainOptions-opt" onClick={PeriodOptionOne}> 0 - 1 month</a>
+    <a className="insideMainOptions-opt" onClick={PeriodOptionTwo}> 1 - 5 months</a>
+    <a className="insideMainOptions-opt" onClick={PeriodOptionThree}> 5 - 12 months</a>
+    <a className="insideMainOptions-opt" onClick={PeriodOptionFour}> More than a year</a>
+  </div>}
 
-    {/* To shows the options of period inside select option. */}
-    {period && <div className="mainPeriod-div card">
-      <a className="insideMainOptions-opt" onClick={PeriodOptionOne}> 0 - 1 month</a>
-      <a className="insideMainOptions-opt" onClick={PeriodOptionTwo}> 1 - 5 months</a>
-      <a className="insideMainOptions-opt" onClick={PeriodOptionThree}> 5 - 12 months</a>
-      <a className="insideMainOptions-opt" onClick={PeriodOptionFour}> More than a year</a>
-    </div>}
-
-    {/* To render the page!*/}
-    {allshow && <>{useallshow(false)}</>}
+  {/* To render the page!*/}
+  {allshow && <>{useallshow(false)}</>}
 
 <Container className="myCard" style={{ marginTop: 20+"px"}}>
   <div className="row theRow">  
