@@ -197,43 +197,43 @@ return(
 
     {/* To shows the options of select. */}
     {select && <div className="mainSelect-div card" >
-      <a className="mainSelectOptions-opt " onClick={priceOption}>Price&nbsp;&#10148; </a>
-      <a className="mainSelectOptions-opt " onClick={periodOption}>Period&nbsp;&#10148; </a>
+      <a className="insideMainOptions-opt " onClick={priceOption}>Price&nbsp;&#10148; </a>
+      <a className="insideMainOptions-opt " onClick={periodOption}>Period&nbsp;&#10148; </a>
     </div>}
 
     {/* To shows the options of sort. */}
     {sort && <div className="mainSort-div card" >
-      <a className="mainSelectOptions-opt" onClick={alphaOption}>Alphabet &#10148; </a>
-      <a className="mainSelectOptions-opt" onClick={timeOption}>Time &#10148; </a>
+      <a className="insideMainOptions-opt" onClick={alphaOption}>Alphabet &#10148; </a>
+      <a className="insideMainOptions-opt" onClick={timeOption}>Time &#10148; </a>
     </div>}
     
     {/* To shows the options of Alpha. */}
     {alpha && <div className="mainAlpha-div card" >
-      <a className="mainSelectOptions-opt" onClick={AZoption}>A - Z</a>
-      <a className="mainSelectOptions-opt" onClick={ZAoption}>Z - A</a>
+      <a className="insideMainOptions-opt" onClick={AZoption}>A - Z</a>
+      <a className="insideMainOptions-opt" onClick={ZAoption}>Z - A</a>
     </div>}
 
     {/* To shows the options of Time. */}
     {time && <div className="mainTime-div card" >
-      <a className="mainSelectOptions-opt" onClick={OldToNew}>Old To New &#10148; </a>
-      <a className="mainSelectOptions-opt" onClick={NewToOld}>New To Old &#10148; </a>
+      <a className="insideMainOptions-opt" onClick={OldToNew}>Old To New &#10148; </a>
+      <a className="insideMainOptions-opt" onClick={NewToOld}>New To Old &#10148; </a>
     </div>}
 
     {/* To shows the options of price inside select option. */}
     {price && <div className="mainPrice-div card">
-      <a className="mainPriceOption-opt" onClick={PriceOptionOne}> 0 - 100$</a>
-      <a className="mainPriceOption-opt" onClick={PriceOptionTwo}> 100$ - 1k</a>
-      <a className="mainPriceOption-opt" onClick={PriceOptionThree}> 1k - 10k</a>
-      <a className="mainPriceOption-opt" onClick={PriceOptionFour}> 10k - 50k</a>
-      <a className="mainPriceOption-opt" onClick={PriceOptionFive}> 50k - 100k</a>
+      <a className="insideMainOptions-opt" onClick={PriceOptionOne}> 0 - 100$</a>
+      <a className="insideMainOptions-opt" onClick={PriceOptionTwo}> 100$ - 1k</a>
+      <a className="insideMainOptions-opt" onClick={PriceOptionThree}> 1k - 10k</a>
+      <a className="insideMainOptions-opt" onClick={PriceOptionFour}> 10k - 50k</a>
+      <a className="insideMainOptions-opt" onClick={PriceOptionFive}> 50k - 100k</a>
     </div>}
 
     {/* To shows the options of period inside select option. */}
     {period && <div className="mainPeriod-div card">
-      <a className="mainPeriodOption-opt" onClick={PeriodOptionOne}> 0 - 1 month</a>
-      <a className="mainPeriodOption-opt" onClick={PeriodOptionTwo}> 1 - 5 months</a>
-      <a className="mainPeriodOption-opt" onClick={PeriodOptionThree}> 5 - 12 months</a>
-      <a className="mainPeriodOption-opt" onClick={PeriodOptionFour}> More than a year</a>
+      <a className="insideMainOptions-opt" onClick={PeriodOptionOne}> 0 - 1 month</a>
+      <a className="insideMainOptions-opt" onClick={PeriodOptionTwo}> 1 - 5 months</a>
+      <a className="insideMainOptions-opt" onClick={PeriodOptionThree}> 5 - 12 months</a>
+      <a className="insideMainOptions-opt" onClick={PeriodOptionFour}> More than a year</a>
     </div>}
 
     {/* To render the page!*/}

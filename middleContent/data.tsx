@@ -16,12 +16,15 @@ import HeadPhonesImage from "./images/HeadPhones.jpg";
 import AripodImage from "./images/airpods.png";
 
 if(finishedName !== ""){
-localStorage.setItem("finalName", finishedName === null ?  "": finishedName.toString())}
-if(finishedPrice !== "")
-{localStorage.setItem("finalPrice", finishedPrice === null ?  "": finishedPrice.toString())}
+localStorage.setItem("finalName", finishedName === null ?  "": finishedName.toString())
+}
+if(finishedPrice !== ""){
+localStorage.setItem("finalPrice", finishedPrice === null ?  "": finishedPrice.toString())
+}
 if(finishedImage !== ""){
 localStorage.setItem("finalImage", finishedImage === null ?  "": finishedImage.toString())
 }
+
 type myData = {
     name: String|undefined,
     price: String|undefined,
@@ -45,7 +48,7 @@ let myImportedData = ():myData[] => {
         imageWidth: '140',
         imageHeight: '120',
         imageMarginBottom: '-100',
-        period: finishedPeriod !== null ? finishedPeriod : '0', //in months
+        period: finishedPeriod !== null ? finishedPeriod : '0',
 }))
 return myArray
 }
