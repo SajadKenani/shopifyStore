@@ -1,0 +1,65 @@
+.myDiv{
+    background-color: rgb(43, 138, 255);
+    height: 180px;
+    max-width: 100%;
+    margin-bottom: -80px;
+    box-shadow: 0px 4px 3px rgba(135, 135, 135, 0.605);
+    
+}
+.mySearchBar-inp{
+    width: 42%;
+    height: 40px;
+    padding-left: 60px;
+    border: none;
+    outline: none;
+    box-shadow: 3px 3px rgb(104, 104, 104);
+    margin: 0 auto;
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+  
+    }
+.logo-lgo{
+    color: aliceblue;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 40px;
+    font-weight: 20%;
+    text-shadow: 2px 2px rgb(104, 104, 104);
+    display: flex;
+    justify-content: center;
+    margin-bottom: -20px;
+}
+.myButton-btn{
+    height: 35px;
+    margin-top: -70px;
+    margin-left: 30%;
+ 
+}
+@media (max-width: 650px){
+ 
+    .logo-lgo{
+        margin-left: -5px;
+        font-size: 40px;
+    }
+    .myDiv{
+        width: 2400%;
+    }
+    .mySearchBar-inp{
+        width: 80%;
+    }
+    .myButton-btn{
+        margin-left: 12%;
+    }
+}
+@media (max-width: 300px){
+ 
+    .logo-lgo{
+        margin-left: -5px;
+        font-size: 30px;
+    }
+    .mySearchBar-inp{
+        padding-left: 50px;
+    }
+ 
+}
+

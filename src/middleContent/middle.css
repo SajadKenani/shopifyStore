@@ -1,0 +1,170 @@
+.myOptionDiv-div{
+    display: flex;
+    margin-top: 50px;
+    margin-bottom: 140px;
+    justify-content: space-around;
+    width: 50%;
+    margin: 50px auto;
+    margin-bottom: 70px;
+
+}
+
+/* The four main options */
+.mainOption-opt{
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+}
+
+/* Inside the main two options  */
+.mainSelect-div{
+    display: grid;
+    width: 120px;
+    height: 30px;
+    margin-left: 41%;
+    margin-top: -64px;
+    
+}
+.mainSort-div{
+    display: grid;
+    width: 120px;
+    height: 30px;
+    margin-left: 55%;
+    margin-top: -64px;
+}
+
+/* Inside Sort option */
+.mainAlpha-div{
+    display: grid;
+    width: 120px;
+    height: 30px;
+    margin-left: 62.3%;
+    margin-top: -50px;
+}
+.mainTime-div{
+    display: grid;
+    width: 150px;
+    height: 30px;
+    margin-left: 62.3%;
+    margin-top: -50px;
+}
+
+/* Inside Select option */
+.mainPrice-div{
+    display: grid;
+    width: 150px;
+    height: 30px;
+    margin-left: 48%;
+    margin-top: -50px;
+}
+.mainPeriod-div{
+    display: grid;
+    width: 150px;
+    height: 30px;
+    margin-left: 48%;
+    margin-top: -50px;
+}
+.insideMainOptions-opt{
+    cursor: pointer;
+    display: flex;
+    text-decoration: none;
+    background-color: rgb(49, 142, 255);
+    border-color: rgb(49, 142, 255);
+    color: aliceblue;
+    padding-left: 20px;
+}
+
+/* To make the page responsive... */
+@media (max-width: 864px) {
+.theRow {
+    flex-direction: row;
+}
+.col-2{
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+}
+}
+
+@media (max-width: 650px) {
+.theRow {
+    flex-direction: column;  
+}
+.col-2{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;  
+}
+.card{
+    width: 600%;
+    margin-left: 20px;
+}
+.mainSelect-div{
+    width: 93%;
+}
+.mainSort-div{
+    width: 93%;
+}
+.mainAlpha-div{
+    width: 93%;
+    margin-top: 0px;
+}
+.mainTime-div{
+    width: 93%;
+    margin-top: 0px;
+}
+.mainPrice-div{
+    width: 93%;
+    margin-top: 0px;
+}
+.mainPeriod-div{
+    width: 93%;
+    margin-top: 0px;
+}
+.myOptionDiv-div{
+    width: 85%;
+}
+}
+
+@media (max-width: 350px) {   
+.theRow {
+    flex-direction: column;
+}
+.col-2{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;   
+}
+.card{
+    width: 1000%;
+    margin-left: -5px;
+}
+.mainSelect-div{
+    width: 100%;
+}
+.mainSort-div{
+    width: 100%;
+}
+.mainAlpha-div{
+    width: 100%;
+    margin-top: 0px;
+}
+.mainTime-div{
+    width: 100%;
+    margin-top: 0px;
+}
+.mainPrice-div{
+    width: 100%;
+    margin-top: 0px;
+}
+.mainPeriod-div{
+    width: 100%;
+    margin-top: 0px;
+}
+.myOptionDiv-div{
+    width: 85%;
+}
+}
