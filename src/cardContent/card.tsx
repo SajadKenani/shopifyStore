@@ -2,7 +2,6 @@ import "./card.css";
 import {myArray} from "../middleContent/middle"
 import { useState } from "react";
 
-
 export const Card = () => {
 
     if(myArray[0] != 0){
@@ -34,6 +33,7 @@ export const Card = () => {
         useisPurchesed(true)
         localStorage.setItem("purchesed", myStock.toString())
     }
+
 return (
     <div className="myOuterDiv-div">
         <div className="myInnterDiv-div">
@@ -44,16 +44,18 @@ return (
         <div className="adjustArrows-div">
         <button onClick={reducingTheStock} className="arrowButton-btn"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20">
         <path d="M20 0H0v20h20zm-7.354 14.166-1.389 1.439-5.737-5.529 5.729-5.657 1.4 1.424-4.267 4.215z"/></svg></button>
-        {myStock === 0 ? <button className="myButton">Not Available</button> : 
+        {myStock === 0 ? <button className="myButton">Not Available</button> :
         <button className="myButton" onClick={isBuying}>{myStock} Buy: {result}$</button>}
+         {isPurchesed === true  && <button className="myButton"></button>}
         <button onClick={upducingTheStock} className="arrowButton-btn"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20">
         <path d="M20 0H0v20h20zM7.658 15.707l-1.414-1.414L10.537 10 6.244 5.707l1.414-1.414L13.365 10z"/></svg></button>
         </div>
-        {isPurchesed && <p>You bought {myStock} of this product.</p>}
+        {isPurchesed && <p> {myStock} added to your cart. </p>}
     </div>
     </div>
     )
 }
-
+console.log(localStorage.getItem("theNumber")) 
 export const PurchesedNumber = localStorage.getItem("purchesed")
-export const number = localStorage.getItem("theNumber")
+export const number = localStorage.getItem("theNumber") 
+localStorage.setItem("purchesed", "0") 

@@ -186,9 +186,8 @@ export const MiddleContent = () => {
   }
 
 return(
-
-<div >{/* Main options*/}
-  <div className="myOptionDiv-div">
+  <div>
+<div className="myOptionDiv-div">
   <a className="mainOption-opt" onClick={showAll}>All</a>  
   <a className="mainOption-opt" onClick={() => select ? workForSelect() : showSelect()}>&#11167; Select</a>
   <a className="mainOption-opt" onClick={() => sort ?  workForSelect() : showSort()}> &#11167; Sort</a>
@@ -235,11 +234,12 @@ return(
     <a className="insideMainOptions-opt" onClick={PeriodOptionThree}> 5 - 12 months</a>
     <a className="insideMainOptions-opt" onClick={PeriodOptionFour}> More than a year</a>
   </div>}
+<div className="myMainDiv-div">{/* Main options*/}
 
   {/* To render the page!*/}
   {allshow && <>{useallshow(false)}</>}
 
-<Container className="myCard" style={{ marginTop: 20+"px"}}>
+<Container className="" style={{ marginTop: 10+"px"}}>
   <div className="row theRow">  
  {myData[0]
  // To sort the cards according to their period
@@ -259,10 +259,10 @@ return(
 
  // To display the cards...
  .map((a:data, b) => (
-    <div className="maincard col-2" key={"divOne "+b}>
-     {<div className="card" key={"divTwo "+b}>
+    <div className=" col-2" key={"divOne "+b}>
+     {<div className="card " key={"divTwo "+b}>
       <Link to="/card" style={{textDecoration: "none", color: "black"}}>
-        <div className="card-body text-left" key={"divThree "+b} onClick={() => getInfo([a.name, a.price, a.image, a.period, a.inStock, b])}>     
+        <div className="card-body text-left " key={"divThree "+b} onClick={() => getInfo([a.name, a.price, a.image, a.period, a.inStock, b])}>     
           <img className="img-thumbnail rounded" style={{justifyContent: "flex"}} src={`${a.image}`} />
           <p className="card-body text-dark" key={"POne "+b}
           style={{marginTop: 15+"px", marginBottom: -20+"px",marginLeft:-10+"px",paddingLeft: 10+"px",paddingRight: 0+"px",fontSize:"13px"}}>
@@ -280,6 +280,27 @@ return(
   </div>))}
 </div>   
 </Container> 
+
+<div className="sideBar-bar">
+  <p className="mainSideBarPara">Your Cart:</p>
+
+  {myData[0].filter( data => data.isPurchased === "1")
+ // To display the cards...
+ .map((a:data, b) => (
+    <div className=" col-12" key={"divOne "+b}>
+     {<div className="card" key={"divTwo "+b}>
+        <div className="card-body text-left " style={{display: "flex", height:60+"px", padding:0}} key={"divThree "+b}>     
+          <img className="img-thumbnail rounded myImage" style={{justifyContent: "flex"}} src={`${a.image}`} />
+          <p className="card-body text-dark" key={"POne "+b}
+          style={{marginLeft:-10+"px",paddingRight: 0+"px", fontSize:"13px"}}>
+          {a.name} 
+          <p key={"PTwo "+b}>Price: {a.price}$ 
+          </p></p>
+        </div> 
+    </div>}    
+  </div>))}
+</div>
+</div>
 </div>
 )
 }

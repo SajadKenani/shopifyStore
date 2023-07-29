@@ -26,7 +26,7 @@ localStorage.setItem("finalPrice", finishedPrice === null ?  "": finishedPrice.t
 if(finishedImage !== ""){
 localStorage.setItem("finalImage", finishedImage === null ?  "": finishedImage.toString())
 }
-const leftInStock = Number(PurchesedNumber)
+let leftInStock = Number(PurchesedNumber)
 const Id = Number(number)
 type myData = {
     name: String|undefined,
@@ -39,6 +39,7 @@ type myData = {
     imageMarginBottom: String,
     period: String, //in months,
     inStock: string,
+    isPurchased: string,
 }
 let myImportedData = ():myData[] => {
     let myArray:myData[] = []
@@ -53,7 +54,8 @@ let myImportedData = ():myData[] => {
         imageHeight: '120',
         imageMarginBottom: '-100',
         period: finishedPeriod !== null ? finishedPeriod : '0',
-        inStock: "3"
+        inStock: "3",
+        isPurchased: "0",
 }))
 return myArray
 }
@@ -73,7 +75,10 @@ const data:myData[] = [
     imageHeight: '120',
     imageMarginBottom: '-100',
     period: '6', //in months,
-    inStock: JSON.stringify(localStorage.getItem("finalID")).split('"')[1] !== null ?  "5" :JSON.stringify(localStorage.getItem("finalID")).split('"')[1],
+    inStock: JSON.stringify(localStorage.getItem("finalID0")).split('"')[1] === undefined ?  "17" : 
+    JSON.stringify(localStorage.getItem("finalID0")).split('"')[1],
+    isPurchased: JSON.stringify(localStorage.getItem("isPurchased0")).split('"')[1] === undefined ?  "0" : 
+    JSON.stringify(localStorage.getItem("isPurchased0")).split('"')[1],
 },
 { 
     name: "Laptop",
@@ -85,7 +90,10 @@ const data:myData[] = [
     imageHeight: '90',
     imageMarginBottom: '-100',
     period: '36', //in months,
-    inStock: JSON.stringify(localStorage.getItem("finalID")).split('"')[1] !== null ?  "5" :JSON.stringify(localStorage.getItem("finalID")).split('"')[1],
+    inStock: JSON.stringify(localStorage.getItem("finalID1")).split('"')[1] === undefined ?  "5" :
+    JSON.stringify(localStorage.getItem("finalID1")).split('"')[1],
+    isPurchased: JSON.stringify(localStorage.getItem("isPurchased1")).split('"')[1] === undefined ?  "0" : 
+    JSON.stringify(localStorage.getItem("isPurchased1")).split('"')[1],
 },
 
 { 
@@ -98,7 +106,10 @@ const data:myData[] = [
     imageHeight: '100',
     imageMarginBottom: '-100',
     period: '8', //in months,
-    inStock: "10",
+    inStock: JSON.stringify(localStorage.getItem("finalID2")).split('"')[1] === undefined ?  "10" :
+    JSON.stringify(localStorage.getItem("finalID2")).split('"')[1],
+    isPurchased: JSON.stringify(localStorage.getItem("isPurchased2")).split('"')[1] === undefined ?  "0" : 
+    JSON.stringify(localStorage.getItem("isPurchased2")).split('"')[1],
 },
 { 
     name: "Keyboard",
@@ -110,7 +121,10 @@ const data:myData[] = [
     imageHeight: '110',
     imageMarginBottom: '-100',
     period: '12', //in months
-    inStock: "2",
+    inStock: JSON.stringify(localStorage.getItem("finalID3")).split('"')[1] === undefined ?  "2" :
+    JSON.stringify(localStorage.getItem("finalID3")).split('"')[1],
+    isPurchased: JSON.stringify(localStorage.getItem("isPurchased3")).split('"')[1] === undefined ?  "0" : 
+    JSON.stringify(localStorage.getItem("isPurchased3")).split('"')[1],
 },
 { 
     name: "TV",
@@ -122,7 +136,10 @@ const data:myData[] = [
     imageHeight: '110',
     imageMarginBottom: '-100',
     period: '32', //in months
-    inStock: "10",
+    inStock: JSON.stringify(localStorage.getItem("finalID4")).split('"')[1] === undefined ?  "10" :
+    JSON.stringify(localStorage.getItem("finalID4")).split('"')[1],
+    isPurchased: JSON.stringify(localStorage.getItem("isPurchased4")).split('"')[1] === undefined ?  "0" : 
+    JSON.stringify(localStorage.getItem("isPurchased4")).split('"')[1],
 },
 { 
     name: "Computer",
@@ -134,7 +151,10 @@ const data:myData[] = [
     imageHeight: '110',
     imageMarginBottom: '-110',
     period: '13', //in months
-    inStock: "2",
+    inStock: JSON.stringify(localStorage.getItem("finalID5")).split('"')[1] === undefined ?  "2" :
+    JSON.stringify(localStorage.getItem("finalID5")).split('"')[1],
+    isPurchased: JSON.stringify(localStorage.getItem("isPurchased4")).split('"')[1] === undefined ?  "0" : 
+    JSON.stringify(localStorage.getItem("isPurchased4")).split('"')[1],
 },
 { 
     name: "Mobile",
@@ -146,7 +166,10 @@ const data:myData[] = [
     imageHeight: '120',
     imageMarginBottom: '-100',
     period: '1', //in months
-    inStock: "0",
+    inStock: JSON.stringify(localStorage.getItem("finalID6")).split('"')[1] === undefined ?  "0" :
+    JSON.stringify(localStorage.getItem("finalID6")).split('"')[1],
+    isPurchased: JSON.stringify(localStorage.getItem("isPurchased6")).split('"')[1] === undefined ?  "0" : 
+    JSON.stringify(localStorage.getItem("isPurchased6")).split('"')[1],
 },
 { 
     name: "Charger",
@@ -158,7 +181,10 @@ const data:myData[] = [
     imageHeight: '110',
     imageMarginBottom: '-100',
     period: '23', //in months
-    inStock: "14",
+    inStock: JSON.stringify(localStorage.getItem("finalID7")).split('"')[1] === undefined ?  "14" :
+    JSON.stringify(localStorage.getItem("finalID7")).split('"')[1],
+    isPurchased: JSON.stringify(localStorage.getItem("isPurchased7")).split('"')[1] === undefined ?  "0" : 
+    JSON.stringify(localStorage.getItem("isPurchased7")).split('"')[1],
 },
 { 
     name: "Mouse Pad",
@@ -170,7 +196,10 @@ const data:myData[] = [
     imageHeight: '120',
     imageMarginBottom: '-100',
     period: '3', //in months
-    inStock: "12",
+    inStock: JSON.stringify(localStorage.getItem("finalID8")).split('"')[1] === undefined ?  "12" :
+    JSON.stringify(localStorage.getItem("finalID8")).split('"')[1],
+    isPurchased: JSON.stringify(localStorage.getItem("isPurchased8")).split('"')[1] === undefined ?  "0" : 
+    JSON.stringify(localStorage.getItem("isPurchased8")).split('"')[1],
 },
 { 
     name: "Monitor",
@@ -182,7 +211,10 @@ const data:myData[] = [
     imageHeight: '120',
     imageMarginBottom: '-100',
     period: '17', //in months
-    inStock: "0",
+    inStock: JSON.stringify(localStorage.getItem("finalID9")).split('"')[1] === undefined ?  "7" :
+    JSON.stringify(localStorage.getItem("finalID9")).split('"')[1],
+    isPurchased: JSON.stringify(localStorage.getItem("isPurchased9")).split('"')[1] === undefined ?  "0" : 
+    JSON.stringify(localStorage.getItem("isPurchased9")).split('"')[1],
 },
 { 
     name: "Headphones",
@@ -194,7 +226,10 @@ const data:myData[] = [
     imageHeight: '120',
     imageMarginBottom: '-100',
     period: '12', //in months
-    inStock: "8",
+    inStock: JSON.stringify(localStorage.getItem("finalID10")).split('"')[1] === undefined ?  "8" :
+    JSON.stringify(localStorage.getItem("finalID10")).split('"')[1],
+    isPurchased: JSON.stringify(localStorage.getItem("isPurchased10")).split('"')[1] === undefined ?  "0" : 
+    JSON.stringify(localStorage.getItem("isPurchased10")).split('"')[1],
 },
 { 
     name: "Airpods",
@@ -206,10 +241,22 @@ const data:myData[] = [
     imageHeight: '120',
     imageMarginBottom: '-100',
     period: '2', //in months
-    inStock: "1",
-},   
+    inStock: JSON.stringify(localStorage.getItem("finalID11")).split('"')[1] === undefined ?  "1" :
+    JSON.stringify(localStorage.getItem("finalID11")).split('"')[1],
+    isPurchased: JSON.stringify(localStorage.getItem("isPurchased11")).split('"')[1] === undefined ?  "0" : 
+    JSON.stringify(localStorage.getItem("isPurchased11")).split('"')[1],
+},  
+
 ]
+
 let finalID = Number(data[Id].inStock) - leftInStock
 data[Id].inStock = finalID.toString()
-localStorage.setItem("finalID", data[Id].inStock)
+for (let i=0; i < data.length; i++){
+    if(data[Id] === data[i]){
+        localStorage.setItem(`finalID${i}`, data[Id].inStock);
+        data[Id].isPurchased = "1";
+        localStorage.setItem(`isPurchased${i}`, data[Id].isPurchased)
+    }
+}
+
 export const Data = data.concat(myImportedData());
