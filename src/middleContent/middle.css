@@ -89,13 +89,19 @@
     margin: 0 auto;
     font-size: 20px;
     font-weight: 200px;
-    box-shadow: 0px 3px rgb(49, 142, 255);
+    box-shadow: 0px 5px rgb(49, 142, 255);
     width: 86px;
-
 }
 .myImage{
    width: 30%;
  
+}
+.myMiniButton{
+    height: 30px;
+    border: 0px;
+    background-color: rgb(255, 255, 255);
+    color: red;
+
 }
 /* To make the page responsive... */
 @media (max-width: 864px) {

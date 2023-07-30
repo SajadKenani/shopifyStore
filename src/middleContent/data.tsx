@@ -2,7 +2,7 @@ import {finishedName} from "../addedCard/addedCard";
 import {finishedPrice} from "../addedCard/addedCard";
 import {finishedImage} from "../addedCard/addedCard";
 import { finishedPeriod } from '../addedCard/addedCard';
-import { PurchesedNumber,  number} from "../cardContent/card";
+import { PurchesedNumber,  number, inPurchased} from "../cardContent/card";
 import HeadsetImage from "./images/headphone-transparent-background.png";
 import LaptopImage from "./images/RWUphA.png";
 import MouseImage from "./images/41GSkwIhASL._AC_UF894,1000_QL80_.jpg";
@@ -40,6 +40,7 @@ type myData = {
     period: String, //in months,
     inStock: string,
     isPurchased: string,
+    purchasedOnes: string
 }
 let myImportedData = ():myData[] => {
     let myArray:myData[] = []
@@ -56,6 +57,7 @@ let myImportedData = ():myData[] => {
         period: finishedPeriod !== null ? finishedPeriod : '0',
         inStock: "3",
         isPurchased: "0",
+        purchasedOnes: "0"
 }))
 return myArray
 }
@@ -79,6 +81,8 @@ const data:myData[] = [
     JSON.stringify(localStorage.getItem("finalID0")).split('"')[1],
     isPurchased: JSON.stringify(localStorage.getItem("isPurchased0")).split('"')[1] === undefined ?  "0" : 
     JSON.stringify(localStorage.getItem("isPurchased0")).split('"')[1],
+    purchasedOnes: JSON.stringify(localStorage.getItem("purchasedOnes0")).split('"')[1] === undefined ?  "0" : 
+    JSON.stringify(localStorage.getItem("purchasedOnes0")).split('"')[1],
 },
 { 
     name: "Laptop",
@@ -94,6 +98,8 @@ const data:myData[] = [
     JSON.stringify(localStorage.getItem("finalID1")).split('"')[1],
     isPurchased: JSON.stringify(localStorage.getItem("isPurchased1")).split('"')[1] === undefined ?  "0" : 
     JSON.stringify(localStorage.getItem("isPurchased1")).split('"')[1],
+    purchasedOnes: JSON.stringify(localStorage.getItem("purchasedOnes1")).split('"')[1] === undefined ?  "0" : 
+    JSON.stringify(localStorage.getItem("purchasedOnes1")).split('"')[1],
 },
 
 { 
@@ -110,6 +116,8 @@ const data:myData[] = [
     JSON.stringify(localStorage.getItem("finalID2")).split('"')[1],
     isPurchased: JSON.stringify(localStorage.getItem("isPurchased2")).split('"')[1] === undefined ?  "0" : 
     JSON.stringify(localStorage.getItem("isPurchased2")).split('"')[1],
+    purchasedOnes: JSON.stringify(localStorage.getItem("purchasedOnes2")).split('"')[1] === undefined ?  "0" : 
+    JSON.stringify(localStorage.getItem("purchasedOnes2")).split('"')[1],
 },
 { 
     name: "Keyboard",
@@ -125,6 +133,8 @@ const data:myData[] = [
     JSON.stringify(localStorage.getItem("finalID3")).split('"')[1],
     isPurchased: JSON.stringify(localStorage.getItem("isPurchased3")).split('"')[1] === undefined ?  "0" : 
     JSON.stringify(localStorage.getItem("isPurchased3")).split('"')[1],
+    purchasedOnes: JSON.stringify(localStorage.getItem("purchasedOnes3")).split('"')[1] === undefined ?  "0" : 
+    JSON.stringify(localStorage.getItem("purchasedOnes3")).split('"')[1],
 },
 { 
     name: "TV",
@@ -140,6 +150,8 @@ const data:myData[] = [
     JSON.stringify(localStorage.getItem("finalID4")).split('"')[1],
     isPurchased: JSON.stringify(localStorage.getItem("isPurchased4")).split('"')[1] === undefined ?  "0" : 
     JSON.stringify(localStorage.getItem("isPurchased4")).split('"')[1],
+    purchasedOnes: JSON.stringify(localStorage.getItem("purchasedOnes4")).split('"')[1] === undefined ?  "0" : 
+    JSON.stringify(localStorage.getItem("purchasedOnes4")).split('"')[1],
 },
 { 
     name: "Computer",
@@ -153,8 +165,10 @@ const data:myData[] = [
     period: '13', //in months
     inStock: JSON.stringify(localStorage.getItem("finalID5")).split('"')[1] === undefined ?  "2" :
     JSON.stringify(localStorage.getItem("finalID5")).split('"')[1],
-    isPurchased: JSON.stringify(localStorage.getItem("isPurchased4")).split('"')[1] === undefined ?  "0" : 
-    JSON.stringify(localStorage.getItem("isPurchased4")).split('"')[1],
+    isPurchased: JSON.stringify(localStorage.getItem("isPurchased5")).split('"')[1] === undefined ?  "0" : 
+    JSON.stringify(localStorage.getItem("isPurchased5")).split('"')[1],
+    purchasedOnes: JSON.stringify(localStorage.getItem("purchasedOnes5")).split('"')[1] === undefined ?  "0" : 
+    JSON.stringify(localStorage.getItem("purchasedOnes5")).split('"')[1],
 },
 { 
     name: "Mobile",
@@ -170,6 +184,8 @@ const data:myData[] = [
     JSON.stringify(localStorage.getItem("finalID6")).split('"')[1],
     isPurchased: JSON.stringify(localStorage.getItem("isPurchased6")).split('"')[1] === undefined ?  "0" : 
     JSON.stringify(localStorage.getItem("isPurchased6")).split('"')[1],
+    purchasedOnes: JSON.stringify(localStorage.getItem("purchasedOnes6")).split('"')[1] === undefined ?  "0" : 
+    JSON.stringify(localStorage.getItem("purchasedOnes6")).split('"')[1],
 },
 { 
     name: "Charger",
@@ -185,6 +201,8 @@ const data:myData[] = [
     JSON.stringify(localStorage.getItem("finalID7")).split('"')[1],
     isPurchased: JSON.stringify(localStorage.getItem("isPurchased7")).split('"')[1] === undefined ?  "0" : 
     JSON.stringify(localStorage.getItem("isPurchased7")).split('"')[1],
+    purchasedOnes: JSON.stringify(localStorage.getItem("purchasedOnes7")).split('"')[1] === undefined ?  "0" : 
+    JSON.stringify(localStorage.getItem("purchasedOnes7")).split('"')[1],
 },
 { 
     name: "Mouse Pad",
@@ -200,6 +218,8 @@ const data:myData[] = [
     JSON.stringify(localStorage.getItem("finalID8")).split('"')[1],
     isPurchased: JSON.stringify(localStorage.getItem("isPurchased8")).split('"')[1] === undefined ?  "0" : 
     JSON.stringify(localStorage.getItem("isPurchased8")).split('"')[1],
+    purchasedOnes: JSON.stringify(localStorage.getItem("purchasedOnes8")).split('"')[1] === undefined ?  "0" : 
+    JSON.stringify(localStorage.getItem("purchasedOnes8")).split('"')[1],
 },
 { 
     name: "Monitor",
@@ -215,6 +235,8 @@ const data:myData[] = [
     JSON.stringify(localStorage.getItem("finalID9")).split('"')[1],
     isPurchased: JSON.stringify(localStorage.getItem("isPurchased9")).split('"')[1] === undefined ?  "0" : 
     JSON.stringify(localStorage.getItem("isPurchased9")).split('"')[1],
+    purchasedOnes: JSON.stringify(localStorage.getItem("purchasedOnes9")).split('"')[1] === undefined ?  "0" : 
+    JSON.stringify(localStorage.getItem("purchasedOnes9")).split('"')[1],
 },
 { 
     name: "Headphones",
@@ -230,6 +252,8 @@ const data:myData[] = [
     JSON.stringify(localStorage.getItem("finalID10")).split('"')[1],
     isPurchased: JSON.stringify(localStorage.getItem("isPurchased10")).split('"')[1] === undefined ?  "0" : 
     JSON.stringify(localStorage.getItem("isPurchased10")).split('"')[1],
+    purchasedOnes: JSON.stringify(localStorage.getItem("purchasedOnes10")).split('"')[1] === undefined ?  "0" : 
+    JSON.stringify(localStorage.getItem("purchasedOnes10")).split('"')[1],
 },
 { 
     name: "Airpods",
@@ -245,18 +269,40 @@ const data:myData[] = [
     JSON.stringify(localStorage.getItem("finalID11")).split('"')[1],
     isPurchased: JSON.stringify(localStorage.getItem("isPurchased11")).split('"')[1] === undefined ?  "0" : 
     JSON.stringify(localStorage.getItem("isPurchased11")).split('"')[1],
+    purchasedOnes: JSON.stringify(localStorage.getItem("purchasedOnes11")).split('"')[1] === undefined ?  "0" : 
+    JSON.stringify(localStorage.getItem("purchasedOnes11")).split('"')[1],
 },  
 
 ]
-
+let finalNumber:number = 0
+let myFinalPrice:number = Number(localStorage.getItem("myFinalPrice"))
 let finalID = Number(data[Id].inStock) - leftInStock
 data[Id].inStock = finalID.toString()
+
 for (let i=0; i < data.length; i++){
     if(data[Id] === data[i]){
-        localStorage.setItem(`finalID${i}`, data[Id].inStock);
+    localStorage.setItem(`finalID${i}`, data[Id].inStock);
+        if (JSON.stringify(inPurchased).split('"')[1] === "1") {
         data[Id].isPurchased = "1";
+        let myNumber = leftInStock + Number(localStorage.getItem(`purchasedOnes${i}`))
+        data[Id].purchasedOnes = (myNumber).toString()
         localStorage.setItem(`isPurchased${i}`, data[Id].isPurchased)
+        localStorage.setItem(`purchasedOnes${i}`, data[Id].purchasedOnes)
     }
 }
+}
 
+for(let i = 0; i < data.length; i++){
+    finalNumber += Number(data[i].purchasedOnes)
+    localStorage.setItem("finalNumber", finalNumber.toString())
+    if(data[Id] === data[i] && JSON.stringify(inPurchased).split('"')[1] === "1"){   
+        myFinalPrice += Number(data[i].price)
+        localStorage.setItem("myFinalPrice", myFinalPrice.toString())
+    }
+       
+}
+console.log( localStorage.getItem("myFinalPrice"))
+console.log(localStorage.getItem("finalNumber"))
 export const Data = data.concat(myImportedData());
+export const theFinalNumber = localStorage.getItem("finalNumber")
+export const theFinalPrice = localStorage.getItem("myFinalPrice")

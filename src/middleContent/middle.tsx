@@ -1,5 +1,5 @@
 import "./middle.css";
-import { Data } from "./data";
+import { Data, theFinalNumber, theFinalPrice } from "./data";
 import { Link } from "react-router-dom";
 import { useState } from "react"
 import { Container } from "@mui/material";
@@ -20,11 +20,12 @@ type data = {
   imageMarginBottom: String,
   period: String, //in months,
   inStock: string,
+  isPurchased: string,
+  purchasedOnes: string
 };
 
 const myData: any[][] = [];
 myData.push(Data);
-console.log(myData[0].toString())
 let myFirstValue = 0;
 let mySecondValue = 0;
 
@@ -44,6 +45,7 @@ export const MiddleContent = () => {
   const [myPeriod, usemyperiod] = useState(false);
   const [alphabeticalSort, usealphabeticalsort] = useState(0);
   const [periodicSort, useperiodicsort] = useState(0);
+  const [showOrHide, useshoworHide] = useState(true)
   const [mymessage, usemymessage] = useState([""])
 
 
@@ -185,6 +187,11 @@ export const MiddleContent = () => {
     useselect(false); useprice(false); useperiod(false); usesort(false); usealpha(false); usetime(false);
   }
 
+  const removeProduct = (a:string) => {
+    a = "0"
+    useshoworHide(!showOrHide)
+  }
+
 return(
   <div>
 <div className="myOptionDiv-div">
@@ -281,9 +288,10 @@ return(
 </div>   
 </Container> 
 
+{/* The side bar... */}
 <div className="sideBar-bar">
   <p className="mainSideBarPara">Your Cart:</p>
-
+  &nbsp; {/* spacing */}
   {myData[0].filter( data => data.isPurchased === "1")
  // To display the cards...
  .map((a:data, b) => (
@@ -296,10 +304,16 @@ return(
           {a.name} 
           <p key={"PTwo "+b}>Price: {a.price}$ 
           </p></p>
+          <p>x{a.purchasedOnes}</p>
+          <button className="myMiniButton" onClick={() =>removeProduct((a.period).toString())}>X</button>
         </div> 
-    </div>}    
+        
+    </div>
+    }    
   </div>))}
+  <p>{Number(theFinalNumber)}X{Number(theFinalPrice)}</p>
 </div>
+
 </div>
 </div>
 )

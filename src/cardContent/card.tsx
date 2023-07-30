@@ -1,9 +1,10 @@
 import "./card.css";
 import {myArray} from "../middleContent/middle"
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export const Card = () => {
-
+const navigate = useNavigate()
     if(myArray[0] != 0){
     localStorage.setItem("myArrOne", myArray[0].toString());
     localStorage.setItem("myArrTwo", myArray[1].toString());
@@ -26,11 +27,15 @@ export const Card = () => {
 
     const reducingTheStock = () => { if(myStock > 1){ usemystock(myStock - 1) } }
     const upducingTheStock = () => { if(myStock < inStocked){usemystock(myStock + 1) }}
+    const goBack = () => {
+    navigate("/")
+    window.location.reload();}
     const [isPurchesed, useisPurchesed] = useState(false);
     const result = myStock * priced;
 
     const isBuying = () => {
         useisPurchesed(true)
+        localStorage.setItem("isPurchased", "1")
         localStorage.setItem("purchesed", myStock.toString())
     }
 
@@ -42,20 +47,31 @@ return (
         <div className="myPara-para">Price: {priced}$</div>
         
         <div className="adjustArrows-div">
+        
+
+        {myStock === 0 && isPurchesed === false ? <button className="myUnAvailableButton" onClick={goBack}>Not Available: Go Back</button> :
+        isPurchesed === false &&
+        <div style={{display: "flex"}}>
         <button onClick={reducingTheStock} className="arrowButton-btn"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20">
         <path d="M20 0H0v20h20zm-7.354 14.166-1.389 1.439-5.737-5.529 5.729-5.657 1.4 1.424-4.267 4.215z"/></svg></button>
-        {myStock === 0 ? <button className="myButton">Not Available</button> :
-        <button className="myButton" onClick={isBuying}>{myStock} Buy: {result}$</button>}
-         {isPurchesed === true  && <button className="myButton"></button>}
+
+        <button className="myButton" onClick={isBuying}>{myStock} Buy: {result}$</button>
+
         <button onClick={upducingTheStock} className="arrowButton-btn"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20">
         <path d="M20 0H0v20h20zM7.658 15.707l-1.414-1.414L10.537 10 6.244 5.707l1.414-1.414L13.365 10z"/></svg></button>
+        </div>}
+         {isPurchesed === true  && <button className="myButton" onClick={goBack}>Go Back</button>}
+
+        
         </div>
         {isPurchesed && <p> {myStock} added to your cart. </p>}
     </div>
     </div>
     )
 }
-console.log(localStorage.getItem("theNumber")) 
+
 export const PurchesedNumber = localStorage.getItem("purchesed")
-export const number = localStorage.getItem("theNumber") 
+export const number = localStorage.getItem("theNumber")
+export const inPurchased = localStorage.getItem("isPurchased") 
 localStorage.setItem("purchesed", "0") 
+localStorage.setItem("isPurchased", "0")

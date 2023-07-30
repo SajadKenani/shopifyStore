@@ -29,6 +29,15 @@
     background-color: white;
     width: 130px;
 }
+.myUnAvailableButton{
+    margin-top: 20px;
+    border: 3px solid rgb(49, 142, 255);
+    border-radius: 20px;
+    color: black;
+    background-color: white;
+    width: 200px;
+    height: 35px;
+}
 .adjustArrows-div{
     display: flex;
     margin: 0 auto;
