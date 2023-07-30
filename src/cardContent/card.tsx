@@ -26,7 +26,7 @@ const navigate = useNavigate()
     let[myStock, usemystock] = useState(inStocked === 0 ? 0 : 1)
 
     const reducingTheStock = () => { if(myStock > 1){ usemystock(myStock - 1) } }
-    const upducingTheStock = () => { if(myStock < inStocked){usemystock(myStock + 1) }}
+    const upducingTheStock = () => { if(myStock <= inStocked){usemystock(myStock + 1) }}
     const goBack = () => {
     navigate("/")
     window.location.reload();}

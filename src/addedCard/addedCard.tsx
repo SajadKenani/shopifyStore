@@ -17,10 +17,12 @@ avaliable: yup.string().required("This field is required.")
 
 export const AddedCard = () => { 
 const navigate = useNavigate()
+
 const [name, setname] = useState([""])
 const [price, setprice] = useState([""])
 const [image, setimage] = useState([""])
 const [avaliable, setavaliable] = useState([""])
+
 const {  register, handleSubmit, formState: { errors} } = useForm({ 
 resolver: yupResolver(schema),
 
@@ -37,6 +39,7 @@ const gottenImage = (event: React.FormEvent<HTMLInputElement>) => {
 }
 const gottenAvailablility = (event: React.FormEvent<HTMLInputElement>) => {
     setavaliable([...[finalAvaliable === null ? "": finalAvaliable?.toString()], event.currentTarget.value])
+    console.log(avaliable)
 }
 const submitHandler = () => {
 navigate("/")
@@ -47,7 +50,7 @@ localStorage.setItem("image", image.toString())
 localStorage.setItem("avaliable", avaliable.toString())
 localStorage.setItem("period", "0.1")
 }
-
+console.log(finalPrice, finalName, finalImage, finalAvaliable)
 return(
 
 <form className="myForm" onSubmit={handleSubmit(submitHandler)}>
@@ -69,7 +72,7 @@ return(
 {errors.picture?.message?.toString()}</p>
 
 <p className="paragraph-para">How many available</p>
-<input {...register("avaliable")} className="searchBar-src" placeholder="Picture..." required onChange={gottenAvailablility}/> 
+<input {...register("avaliable")} className="searchBar-src" placeholder="avaliable..." required onChange={gottenAvailablility}/> 
 <p style={{marginTop: -15+"px", marginLeft: 10+"px",marginBottom: -100+"px", color: "rgb(180, 28, 28)"}}> 
 {errors.avaliable?.message?.toString()}</p>
 

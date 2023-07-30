@@ -1,5 +1,5 @@
 import "./middle.css";
-import { Data, theFinalNumber, theFinalPrice } from "./data";
+import { theFinalData, theFinalNumber, theFinalPrice } from "./data";
 import { Link } from "react-router-dom";
 import { useState } from "react"
 import { Container } from "@mui/material";
@@ -25,7 +25,7 @@ type data = {
 };
 
 const myData: any[][] = [];
-myData.push(Data);
+myData.push(theFinalData);
 let myFirstValue = 0;
 let mySecondValue = 0;
 
@@ -286,6 +286,7 @@ return(
     </div>}    
   </div>))}
 </div>   
+
 </Container> 
 
 {/* The side bar... */}
