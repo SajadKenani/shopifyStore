@@ -4,13 +4,14 @@ import "../addedCard/addedCard.css"
 import * as yup from "yup"; 
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { finalPrice, finalName, finalImage } from "../middleContent/data";
+import { finalPrice, finalName, finalImage, finalAvaliable } from "../middleContent/data";
 
 const schema = yup.object().shape({
 
 name: yup.string().required("This field is required."),
 price: yup.number().required("This field is required."), 
 picture: yup.string().required ("This field is required."),
+avaliable: yup.string().required("This field is required.")
 
 })
 
@@ -19,7 +20,8 @@ const navigate = useNavigate()
 const [name, setname] = useState([""])
 const [price, setprice] = useState([""])
 const [image, setimage] = useState([""])
-const {  register, handleSubmit, formState: { errors}, reset } = useForm({ 
+const [avaliable, setavaliable] = useState([""])
+const {  register, handleSubmit, formState: { errors} } = useForm({ 
 resolver: yupResolver(schema),
 
 });
@@ -33,12 +35,16 @@ const gottenPrice = (event: React.FormEvent<HTMLInputElement>) => {
 const gottenImage = (event: React.FormEvent<HTMLInputElement>) => {
     setimage([...[finalImage === null ? "": finalImage?.toString()], event.currentTarget.value])
 }
+const gottenAvailablility = (event: React.FormEvent<HTMLInputElement>) => {
+    setavaliable([...[finalAvaliable === null ? "": finalAvaliable?.toString()], event.currentTarget.value])
+}
 const submitHandler = () => {
 navigate("/")
 window.location.reload();
 localStorage.setItem("name", name.toString())
 localStorage.setItem("price", price.toString())
 localStorage.setItem("image", image.toString())
+localStorage.setItem("avaliable", avaliable.toString())
 localStorage.setItem("period", "0.1")
 }
 
@@ -62,6 +68,11 @@ return(
 <p style={{marginTop: -15+"px", marginLeft: 10+"px",marginBottom: -100+"px", color: "rgb(180, 28, 28)"}}> 
 {errors.picture?.message?.toString()}</p>
 
+<p className="paragraph-para">How many available</p>
+<input {...register("avaliable")} className="searchBar-src" placeholder="Picture..." required onChange={gottenAvailablility}/> 
+<p style={{marginTop: -15+"px", marginLeft: 10+"px",marginBottom: -100+"px", color: "rgb(180, 28, 28)"}}> 
+{errors.avaliable?.message?.toString()}</p>
+
 <button type="submit" className="btn btn-primary myButton"
 style={{backgroundColor: "rgb(48, 134, 248)", color: "white", borderColor: "white"}}>Post!</button>
 </form>
@@ -72,3 +83,4 @@ export const finishedName = localStorage.getItem("name");
 export const finishedPrice = localStorage.getItem("price");
 export const finishedImage = localStorage.getItem("image");
 export const finishedPeriod =  localStorage.getItem("period")
+export const finishedAvailable = localStorage.getItem("avaliable")

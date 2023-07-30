@@ -1,7 +1,4 @@
-import {finishedName} from "../addedCard/addedCard";
-import {finishedPrice} from "../addedCard/addedCard";
-import {finishedImage} from "../addedCard/addedCard";
-import { finishedPeriod } from '../addedCard/addedCard';
+import {finishedName, finishedPrice, finishedImage, finishedPeriod} from "../addedCard/addedCard";
 import { PurchesedNumber,  number, inPurchased} from "../cardContent/card";
 import HeadsetImage from "./images/headphone-transparent-background.png";
 import LaptopImage from "./images/RWUphA.png";
@@ -15,7 +12,6 @@ import MousePadImage from "./images/MousePad.jpg";
 import MonitorImage from "./images/Monitor.webp";
 import HeadPhonesImage from "./images/HeadPhones.jpg";
 import AripodImage from "./images/airpods.png";
-import { useState } from "react";
 
 if(finishedName !== ""){
 localStorage.setItem("finalName", finishedName === null ?  "": finishedName.toString())
@@ -44,7 +40,7 @@ type myData = {
 }
 let myImportedData = ():myData[] => {
     let myArray:myData[] = []
-   for(let i = 0; i < (finalName?.split(",").slice(1)?.length === undefined ? 1 : finalName?.split(",").slice(1)?.length); i++)
+    for(let i = 0; i < (finalName?.split(",").slice(1)?.length === undefined ? 1 : finalName?.split(",").slice(1)?.length); i++)
      (myArray.push({
         name: finalName?.split(",").slice(1)[i] !== undefined ? finalName?.split(",").slice(1)[i] : '',
         price: finalPrice?.split(",").slice(1)[i] !== undefined ? finalPrice?.split(',').slice(1)[i] : '',
@@ -55,9 +51,11 @@ let myImportedData = ():myData[] => {
         imageHeight: '120',
         imageMarginBottom: '-100',
         period: finishedPeriod !== null ? finishedPeriod : '0',
-        inStock: "3",
-        isPurchased: "0",
-        purchasedOnes: "0"
+        inStock: finalAvaliable?.split(",").slice(1)[i] !== undefined ? finalAvaliable?.split(',').slice(1)[i] : '',
+        isPurchased: JSON.stringify(localStorage.getItem(`finalID${data.length + i}`)).split('"')[1] === undefined ?  "0" : 
+        JSON.stringify(localStorage.getItem(`finalID${data.length + i}`)).split('"')[1],
+        purchasedOnes: JSON.stringify(localStorage.getItem(`finalID${data.length + i}`)).split('"')[1] === undefined ?  "0" : 
+        JSON.stringify(localStorage.getItem(`finalID${data.length + i}`)).split('"')[1],
 }))
 return myArray
 }
@@ -65,6 +63,7 @@ return myArray
 export const finalName = localStorage.getItem("finalName");
 export const finalPrice = localStorage.getItem("finalPrice");
 export const finalImage = localStorage.getItem("finalImage");
+export const finalAvaliable = localStorage.getItem("finalAvaliable")
 
 const data:myData[] = [
 { 
@@ -282,6 +281,8 @@ data[Id].inStock = finalID.toString()
 for (let i=0; i < data.length; i++){
     if(data[Id] === data[i]){
     localStorage.setItem(`finalID${i}`, data[Id].inStock);
+    finalNumber += Number(data[i].purchasedOnes)
+    localStorage.setItem("finalNumber", finalNumber.toString())
         if (JSON.stringify(inPurchased).split('"')[1] === "1") {
         data[Id].isPurchased = "1";
         let myNumber = leftInStock + Number(localStorage.getItem(`purchasedOnes${i}`))
@@ -289,18 +290,13 @@ for (let i=0; i < data.length; i++){
         localStorage.setItem(`isPurchased${i}`, data[Id].isPurchased)
         localStorage.setItem(`purchasedOnes${i}`, data[Id].purchasedOnes)
     }
-}
-}
-
-for(let i = 0; i < data.length; i++){
-    finalNumber += Number(data[i].purchasedOnes)
-    localStorage.setItem("finalNumber", finalNumber.toString())
     if(data[Id] === data[i] && JSON.stringify(inPurchased).split('"')[1] === "1"){   
         myFinalPrice += Number(data[i].price)
         localStorage.setItem("myFinalPrice", myFinalPrice.toString())
     }
-       
 }
+}
+
 console.log( localStorage.getItem("myFinalPrice"))
 console.log(localStorage.getItem("finalNumber"))
 export const Data = data.concat(myImportedData());
