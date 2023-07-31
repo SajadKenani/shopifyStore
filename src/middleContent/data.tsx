@@ -13,6 +13,7 @@ import MonitorImage from "./images/Monitor.webp";
 import HeadPhonesImage from "./images/HeadPhones.jpg";
 import AripodImage from "./images/airpods.png";
 
+// Saving the values in the Local Storage...
 let myfinishedAvailable = finishedAvailable?.split(",")[1]
 if(finishedName !== ""){
 localStorage.setItem("finalName", finishedName === null ?  "": finishedName.toString())
@@ -24,11 +25,15 @@ if(finishedImage !== ""){
 localStorage.setItem("finalImage", finishedImage === null ?  "": finishedImage.toString())
 }
 if(myfinishedAvailable !== ""){
-localStorage.setItem("finalAvaliable", myfinishedAvailable === null ?  "": JSON.stringify(myfinishedAvailable).split('"')[1])
+localStorage.setItem("finalAvaliable", finishedAvailable?.split(",")[1] === null ||finishedAvailable?.split(",")[1] === undefined  ?  "" 
+: finishedAvailable?.split(",")[1])
 }
 
+//Setting the values that we got them from importing
 let leftInStock = Number(PurchesedNumber)
 let Id = Number(number)  
+
+//Making things strict
 type myData = {
     name: String|undefined,
     price: String|undefined,
@@ -44,21 +49,23 @@ type myData = {
     purchasedOnes: string
 }
 
-
-
-
-
+// Data's Information
 const data:myData[] = [
 { 
     name: "Headset",
     price: '100',
     priceMarginTop: '150',
     priceMarginBottom: '-160',
+
+    // Got it from importing 
     image: HeadsetImage,
+
     imageWidth: '120',
     imageHeight: '120',
     imageMarginBottom: '-100',
     period: '6', //in months,
+
+    // Saving the values into the Local Storage if the were defined
     inStock: JSON.stringify(localStorage.getItem("finalID0")).split('"')[1] === undefined ?  "17" : 
     JSON.stringify(localStorage.getItem("finalID0")).split('"')[1],
     isPurchased: JSON.stringify(localStorage.getItem("isPurchased0")).split('"')[1] === undefined ?  "0" : 
@@ -256,8 +263,11 @@ const data:myData[] = [
 },  
 ]
 let myImportedData = ():myData[] => {
+    // To add the new products that were added from "add page"
     let myArray:myData[] = []
+    // Iterate between the new products
     for(let i = 0; i < (finalName?.split(",").slice(1)?.length === undefined ? 1 : finalName?.split(",").slice(1)?.length); i++)
+    //Adding the new products to the Data...
      (myArray.push({
         
         name: finalName?.split(",").slice(1)[i] !== undefined ? finalName?.split(",").slice(1)[i] : '',
@@ -270,26 +280,26 @@ let myImportedData = ():myData[] => {
         imageMarginBottom: '-100',
         period: finishedPeriod !== null ? finishedPeriod : '0',
 
-        inStock: JSON.stringify(localStorage.getItem(`finalID${data.length + 1}`)).split('"')[1] === undefined ?  
+        inStock: JSON.stringify(localStorage.getItem(`finalID${data.length }`)).split('"')[1] === undefined ?  
         JSON.stringify(finalAvaliable).split('"')[1] : 
-        JSON.stringify(localStorage.getItem(`finalID${data.length + 1}`)).split('"')[1],
+        JSON.stringify(localStorage.getItem(`finalID${data.length }`)).split('"')[1],
 
-        isPurchased: JSON.stringify(localStorage.getItem(`purchasedOnes${data.length + 1}`)).split('"')[1] === undefined ?  "1" : 
-        JSON.stringify(localStorage.getItem(`purchasedOnes${data.length + 1}`)).split('"')[1],
+        isPurchased: JSON.stringify(localStorage.getItem(`isPurchased${data.length}`)).split('"')[1] === undefined ?  "0" : 
+        JSON.stringify(localStorage.getItem(`isPurchased${data.length}`)).split('"')[1],
 
-        purchasedOnes: JSON.stringify(localStorage.getItem(`purchasedOnes${data.length + 1}`)).split('"')[1] === undefined ?  "1" : 
-        JSON.stringify(localStorage.getItem(`purchasedOnes${data.length + 1}`)).split('"')[1],
+        purchasedOnes: JSON.stringify(localStorage.getItem(`purchasedOnes${data.length}`)).split('"')[1] === undefined ?  "0" : 
+        JSON.stringify(localStorage.getItem(`purchasedOnes${data.length}`)).split('"')[1],
 })
 )
-
-
 return myArray
 }
-let finalNumber:number = 0
+
 let myFinalPrice:number = Number(localStorage.getItem("myFinalPrice"))
 
+//exporting the information to added card page
 
-
+/* the variables in "added card" keep getting the old values and then add the new ones with them, 
+and then they come back to this script and this script exporing to the "middle page" and "added card" and it keeps looping like that */
 export const finalName = localStorage.getItem("finalName");
 export const finalPrice = localStorage.getItem("finalPrice");
 export const finalImage = localStorage.getItem("finalImage");
@@ -298,20 +308,26 @@ export const finalAvaliable = localStorage.getItem("finalAvaliable");
 
 const Data = data.concat(myImportedData());
 
-let finalID = Number(Data[Id].inStock) - leftInStock
-Data[Id].inStock = finalID.toString()
+let finalID = Number(Data[Id].inStock) - leftInStock;
+
+Data[Id].inStock = finalID.toString();
 
 for (let i=0; i <= Data.length; i++){
     if(Data[Id] === Data[i]){
-    localStorage.setItem(`finalID${i}`, Data[Id].inStock === undefined ? "2":Data[Id].inStock);
-    finalNumber += Number(Data[i].purchasedOnes)
-    localStorage.setItem("finalNumber", finalNumber.toString())
         if (JSON.stringify(inPurchased).split('"')[1] === "1") {
-            Data[Id].isPurchased = "1";
+        Data[Id].isPurchased = "1";
         let myNumber = leftInStock + Number(localStorage.getItem(`purchasedOnes${i}`))
         Data[Id].purchasedOnes = (myNumber).toString()
-        localStorage.setItem(`isPurchased${i}`, Data[Id].isPurchased)
-        localStorage.setItem(`purchasedOnes${i}`, Data[Id].purchasedOnes)
+           
+        if(Number(Data[Id]) > (data.length)){
+        localStorage.setItem(`finalID${i + 1}`, Data[Id].inStock);
+        localStorage.setItem(`isPurchased${i + 1}`, Data[Id].isPurchased)
+        localStorage.setItem(`purchasedOnes${i + 1}`, Data[Id].purchasedOnes)
+        }else{
+            localStorage.setItem(`isPurchased${i}`, Data[Id].isPurchased)
+            localStorage.setItem(`purchasedOnes${i}`, Data[Id].purchasedOnes)
+            localStorage.setItem(`finalID${i}`, Data[Id].inStock);
+        }
     }
     if(Data[Id] === Data[i] && JSON.stringify(inPurchased).split('"')[1] === "1"){   
         myFinalPrice += Number(Data[i].price)
@@ -319,7 +335,7 @@ for (let i=0; i <= Data.length; i++){
     }
 }
 }
+
+// Exporting the data to the "middle page"
 export const theFinalData = Data;
-export const theFinalNumber = localStorage.getItem("finalNumber")
-export const theFinalPrice = localStorage.getItem("myFinalPrice")
 

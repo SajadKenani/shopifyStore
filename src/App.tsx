@@ -10,15 +10,14 @@ function App() {
   
   return (
  <Router>
+  <UpperContent />
   <Routes>
     <Route path='/' element={
     <>
-    <UpperContent />
     <MiddleContent />
     </>}/>
     <Route path="/card" element={<Card />}/>
     <Route path="/addYourCard" element={<AddedCard />}/>
-    
   </Routes>
   </Router>
   );
