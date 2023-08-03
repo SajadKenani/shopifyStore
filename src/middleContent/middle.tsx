@@ -11,6 +11,7 @@ const getInfo = (info:object) => { MyInfo.splice(0); (Object.values(info)).map((
 export const myArray = MyInfo;
 
 type data = {
+  Id:Number,
   name: String,
   price: String,
   priceMarginTop: String,
@@ -27,7 +28,7 @@ type data = {
 
 const myData: any[][] = [];
 myData.push(theFinalData);
-
+console.log(myData)
 let myFirstValue = 0;
 let mySecondValue = 0;
 
@@ -48,7 +49,6 @@ export const MiddleContent = () => {
   const [myPeriod, usemyperiod] = useState(false);
   const [alphabeticalSort, usealphabeticalsort] = useState(0);
   const [periodicSort, useperiodicsort] = useState(0);
-  const [showOrHide, useshoworHide] = useState(true)
   const [mymessage, usemymessage] = useState([""])
 
 
@@ -193,9 +193,11 @@ export const MiddleContent = () => {
   }
 
   // Remove a specific product from the side bar
-  const removeProduct = (inStock:string) => {
-    inStock = "0"
-    useshoworHide(!showOrHide)
+  const removeProduct = (b:Number) => {
+    delete localStorage[`finalID${b}`];
+    delete localStorage[`isPurchased${b}`];
+    delete localStorage[`purchasedOnes${b}`];
+    window.location.reload();
   }
 
   let finalPrice = 0
@@ -205,7 +207,11 @@ export const MiddleContent = () => {
   }
   // To erase all the products on the side bar
   const eraseEverything = () => {
-    localStorage.clear()
+    for(let i = 0; i <= myData[0].length; i++){
+    delete localStorage[`finalID${i}`];
+    delete localStorage[`isPurchased${i}`];
+    delete localStorage[`purchasedOnes${i}`];
+    }
     window.location.reload();
   }
 
@@ -259,6 +265,7 @@ return(
     <a className="insideMainOptions-opt" onClick={PeriodOptionThree}> 5 - 12 months</a>
     <a className="insideMainOptions-opt" onClick={PeriodOptionFour}> More than a year</a>
   </div>}
+
 <div className="myMainDiv-div">{/* Main options*/}
 
   {/* To render the page!*/}
@@ -275,13 +282,9 @@ return(
   myPrice ? (Number(data.price) > myFirstValue) && (Number(data.price) < mySecondValue) :(Number(data.price) > 0) && (Number(data.price) < 10000) &&
   // To display the cards according to their period 
   myPeriod ? (Number(data.period) > firstPeriodValue) && (Number(data.period) < secondPeriodValue) :(Number(data.period) > 0) && (Number(data.period) < 10000) 
-
   )
-  
-  
  // To display the cards...
  .map((a:data, b:number) => (
-
   // Some Adjusments from Bootstrap
     <div className="col-2" key={"divOne "+b}>
      {<div className="card " key={"divTwo "+b}>
@@ -297,14 +300,17 @@ return(
           {a.name} 
           <p key={"PTwo "+b}>Price: {a.price}$   
           {/* Checking the Released Data */}
-          <p key={"PThree "+b} className="text-secondary">{Number(a.period) >= 12 && <p> Released {(Number(a.period) * 0.0833334).toFixed()} years ago </p>}
-          <p key={"PFour "+b} className="text-secondary">{Number(a.period) < 12 && Number(a.period) > 0.9 && <p> Released {(Number(a.period)).toFixed()} months ago </p>}
-          <p key={"PFive "+b} className="text-secondary">{Number(a.period) < 1 && <p> Released Recently </p>}
+          <p key={"PThree "+b} className="text-secondary">{Number(a.period) >= 12 && <p style={{display:"flex"}}>
+            Released {(Number(a.period) * 0.0833334).toFixed()}&nbsp;{Number((Number(a.period) * 0.0833334).toFixed()) !== 1 ? <p> years ago </p> : <p> year ago </p>} </p>}
+          <p key={"PFour "+b} className="text-secondary">{Number(a.period) < 12 && Number(a.period) > 0.9 && 
+          <p style={{display:"flex"}}> Released {(Number(a.period)).toFixed()}&nbsp;{(Number(a.period)) !== 1 ? <p>months ago</p> : <p>month ago</p>} </p>}
+          <p key={"PFive "+b} className="text-secondary">{Number(a.period) < 1 && <p style={{marginBottom:30+"px"}}> Released Recently </p>}
           {/* Styling and Checking the Availablilities */}
-          <p style={{margin: 0, marginTop: -15+"px", backgroundColor:"rgb(255, 49, 49)", width: 80 + "%"}}>{Number(a.inStock) === 0 && 
+          <p style={{margin: 0, marginTop: -30+"px", backgroundColor:"rgb(255, 49, 49)", width: 80 + "%"}}>{Number(a.inStock) === 0 && 
           <p style={{color: "white"}}>&nbsp;Not available</p>}
           <p style={{margin: 0, backgroundColor:"rgb(49, 142, 255)", width: 100 + "%"}}>{Number(a.inStock) !== 0 && 
-          <p style={{ color: "white"}}>&nbsp;{a.inStock} Are available</p>}
+          <p style={{ color: "white", display:"flex", height:20+"px"}}>&nbsp;{a.inStock} {Number(a.inStock) !==1 ? 
+          <p style={{display:"flex"}}>&nbsp;Are available</p>:<p>&nbsp;Is available</p>}</p>}
           </p></p></p></p></p></p></p> 
         </div> 
       </Link>
@@ -312,6 +318,7 @@ return(
   </div>))}
 </div> 
 </Container> 
+
 {/* The side bar... */}
 <div className="sideBar-bar">
   <p className="mainSideBarPara">Your Cart:</p>
@@ -336,7 +343,7 @@ return(
           <p style={{marginRight: 5 +"px", marginTop: 17+"px", marginBottom:-7+"px"}}>x{a.purchasedOnes}</p>
 
           {/* To remove an Item */}
-          <button className="myMiniButton" onClick={() =>removeProduct((a.inStock))}></button>
+          <button className="myMiniButton" onClick={() =>removeProduct((a.Id))}></button>
         </div> 
     </div>}    
   </div>))}
@@ -346,7 +353,6 @@ return(
    <button className="myErasingButton" onClick={eraseEverything}>Delete All!</button> </div> : 
    <Link className="mainOption-opt" to={"/addYourCard"}>
     <button className="myBuyingButton" style={{display:"flex", margin: "auto"}}>Add Something To sell!</button></Link>}
-
 </div>
 </div>
 </div>

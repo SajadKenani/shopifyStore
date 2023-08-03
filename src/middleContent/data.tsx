@@ -34,6 +34,7 @@ let Id = Number(number)
 
 //Making things strict
 type myData = {
+    Id: Number,
     name: String|undefined,
     price: String|undefined,
     priceMarginTop: String,
@@ -51,6 +52,7 @@ type myData = {
 // Data's Information
 const data:myData[] = [
 { 
+    Id:0,
     name: "Headset",
     price: '100',
     priceMarginTop: '150',
@@ -73,6 +75,7 @@ const data:myData[] = [
     JSON.stringify(localStorage.getItem("purchasedOnes0")).split('"')[1],
 },
 { 
+    Id:1,
     name: "Laptop",
     price: '1000',
     priceMarginTop: '150',
@@ -91,6 +94,7 @@ const data:myData[] = [
 },
 
 { 
+    Id:2,
     name: "Mouse",
     price: '70',
     priceMarginTop: '150',
@@ -108,6 +112,7 @@ const data:myData[] = [
     JSON.stringify(localStorage.getItem("purchasedOnes2")).split('"')[1],
 },
 { 
+    Id:3,
     name: "Keyboard",
     price: '30',
     priceMarginTop: '150',
@@ -125,6 +130,7 @@ const data:myData[] = [
     JSON.stringify(localStorage.getItem("purchasedOnes3")).split('"')[1],
 },
 { 
+    Id:4,
     name: "TV",
     price: '500',
     priceMarginTop: '150',
@@ -142,6 +148,7 @@ const data:myData[] = [
     JSON.stringify(localStorage.getItem("purchasedOnes4")).split('"')[1],
 },
 { 
+    Id:5,
     name: "Computer",
     price: '2000',
     priceMarginTop: '150',
@@ -159,6 +166,7 @@ const data:myData[] = [
     JSON.stringify(localStorage.getItem("purchasedOnes5")).split('"')[1],
 },
 { 
+    Id:6,
     name: "Mobile",
     price: '900',
     priceMarginTop: '150',
@@ -176,6 +184,7 @@ const data:myData[] = [
     JSON.stringify(localStorage.getItem("purchasedOnes6")).split('"')[1],
 },
 { 
+    Id:7,
     name: "Charger",
     price: '10',
     priceMarginTop: '150',
@@ -193,6 +202,7 @@ const data:myData[] = [
     JSON.stringify(localStorage.getItem("purchasedOnes7")).split('"')[1],
 },
 { 
+    Id:8,
     name: "Mouse Pad",
     price: '5',
     priceMarginTop: '150',
@@ -210,6 +220,7 @@ const data:myData[] = [
     JSON.stringify(localStorage.getItem("purchasedOnes8")).split('"')[1],
 },
 { 
+    Id:9,
     name: "Monitor",
     price: '400',
     priceMarginTop: '150',
@@ -227,6 +238,7 @@ const data:myData[] = [
     JSON.stringify(localStorage.getItem("purchasedOnes9")).split('"')[1],
 },
 { 
+    Id:10,
     name: "Headphones",
     price: '30',
     priceMarginTop: '150',
@@ -244,6 +256,7 @@ const data:myData[] = [
     JSON.stringify(localStorage.getItem("purchasedOnes10")).split('"')[1],
 },
 { 
+    Id:11,
     name: "Airpods",
     price: '200',
     priceMarginTop: '150',
@@ -268,7 +281,7 @@ let myImportedData = ():myData[] => {
     for(let i = 0; i < (finalName?.split(",").slice(1)?.length === undefined ? 1 : finalName?.split(",").slice(1)?.length); i++)
     //Adding the new products to the Data...
      (myArray.push({
-        
+        Id: data.length + i,
         name: finalName?.split(",").slice(1)[i] !== undefined ? finalName?.split(",").slice(1)[i] : '',
         price: finalPrice?.split(",").slice(1)[i] !== undefined ? finalPrice?.split(',').slice(1)[i] : '',
         priceMarginTop: '150',
