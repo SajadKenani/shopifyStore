@@ -38,9 +38,11 @@ const gottenPrice = (event: React.FormEvent<HTMLInputElement>) => {
 }
 const gottenImage = (event: React.FormEvent<HTMLInputElement>) => {
     setimage([...[finalImage === null ? "": finalImage?.toString()], event.currentTarget.value])
+    console.log(finalImage)
 }
 const gottenAvailablility = (event: React.FormEvent<HTMLInputElement>) => {
     setavaliable([...[finalAvaliable === null ? "": finalAvaliable?.toString()], event.currentTarget.value])
+    console.log(finalAvaliable)
 }
 const submitHandler = () => {
 // To go to the main page
@@ -96,4 +98,5 @@ export const finishedName = localStorage.getItem("name");
 export const finishedPrice = localStorage.getItem("price");
 export const finishedImage = localStorage.getItem("image");
 export const finishedPeriod =  localStorage.getItem("period")
+
 export const finishedAvailable = localStorage.getItem("avaliable")

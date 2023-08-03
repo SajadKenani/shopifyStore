@@ -7,11 +7,13 @@ import { useNavigate } from "react-router-dom"
 
 let finalMessage = [""]
 export const UpperContent = () => {
-  const [search, setsearch] = useState([""])
   const navigate = useNavigate();
+
   const handleSearch = (event: React.FormEvent<HTMLInputElement>) => {
-    setsearch(event.currentTarget.value.split(""))
-    finalMessage = search
+    finalMessage  = (event.currentTarget.value.split(""))
+    console.log(finalMessage)
+    
+    localStorage.setItem("finalMessage", finalMessage.toString())
   }
 
   //To go back to the main page wherever you were.
@@ -36,4 +38,5 @@ return(
   </div>
 )}
 
-export const message = finalMessage
+export const message: String[]|undefined = localStorage.getItem("finalMessage")?.split(',')
+

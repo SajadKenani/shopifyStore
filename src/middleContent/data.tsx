@@ -14,7 +14,7 @@ import HeadPhonesImage from "./images/HeadPhones.jpg";
 import AripodImage from "./images/airpods.png";
 
 // Saving the values in the Local Storage...
-let myfinishedAvailable = finishedAvailable?.split(",")[1]
+
 if(finishedName !== ""){
 localStorage.setItem("finalName", finishedName === null ?  "": finishedName.toString())
 }
@@ -24,9 +24,8 @@ localStorage.setItem("finalPrice", finishedPrice === null ?  "": finishedPrice.t
 if(finishedImage !== ""){
 localStorage.setItem("finalImage", finishedImage === null ?  "": finishedImage.toString())
 }
-if(myfinishedAvailable !== ""){
-localStorage.setItem("finalAvaliable", finishedAvailable?.split(",")[1] === null ||finishedAvailable?.split(",")[1] === undefined  ?  "" 
-: finishedAvailable?.split(",")[1])
+if(finishedAvailable !== ""){
+localStorage.setItem("finalAvaliable", finishedAvailable === null  ?  "" : finishedAvailable.toString())
 }
 
 //Setting the values that we got them from importing
@@ -44,7 +43,7 @@ type myData = {
     imageHeight: String,
     imageMarginBottom: String,
     period: String, //in months,
-    inStock: string,
+    inStock: string|undefined,
     isPurchased: string,
     purchasedOnes: string
 }
@@ -280,15 +279,14 @@ let myImportedData = ():myData[] => {
         imageMarginBottom: '-100',
         period: finishedPeriod !== null ? finishedPeriod : '0',
 
-        inStock: JSON.stringify(localStorage.getItem(`finalID${data.length }`)).split('"')[1] === undefined ?  
-        JSON.stringify(finalAvaliable).split('"')[1] : 
-        JSON.stringify(localStorage.getItem(`finalID${data.length }`)).split('"')[1],
+        inStock: JSON.stringify(localStorage.getItem(`finalID${data.length+i}`)).split('"')[1] === undefined ?  (finalAvaliable?.split(",")[i+1]) :
+        JSON.stringify(localStorage.getItem(`finalID${data.length+i}`)).split('"')[1],
 
-        isPurchased: JSON.stringify(localStorage.getItem(`isPurchased${data.length}`)).split('"')[1] === undefined ?  "0" : 
-        JSON.stringify(localStorage.getItem(`isPurchased${data.length}`)).split('"')[1],
+        isPurchased: JSON.stringify(localStorage.getItem(`isPurchased${data.length+i}`)).split('"')[i] === undefined ?  "0" : 
+        JSON.stringify(localStorage.getItem(`isPurchased${data.length+i}`)).split('"')[1],
 
-        purchasedOnes: JSON.stringify(localStorage.getItem(`purchasedOnes${data.length}`)).split('"')[1] === undefined ?  "0" : 
-        JSON.stringify(localStorage.getItem(`purchasedOnes${data.length}`)).split('"')[1],
+        purchasedOnes: JSON.stringify(localStorage.getItem(`purchasedOnes${data.length+1}`)).split('"')[i] === undefined ?  "0" : 
+        JSON.stringify(localStorage.getItem(`purchasedOnes${data.length+i}`)).split('"')[1],
 })
 )
 return myArray
@@ -320,13 +318,13 @@ for (let i=0; i <= Data.length; i++){
         Data[Id].purchasedOnes = (myNumber).toString()
            
         if(Number(Data[Id]) > (data.length)){
-        localStorage.setItem(`finalID${i + 1}`, Data[Id].inStock);
+        localStorage.setItem(`finalID${i + 1}`, (finalAvaliable?.split(",")[i+1]) === undefined ? "0" : (finalAvaliable?.split(",")[i+1]));
         localStorage.setItem(`isPurchased${i + 1}`, Data[Id].isPurchased)
         localStorage.setItem(`purchasedOnes${i + 1}`, Data[Id].purchasedOnes)
         }else{
             localStorage.setItem(`isPurchased${i}`, Data[Id].isPurchased)
             localStorage.setItem(`purchasedOnes${i}`, Data[Id].purchasedOnes)
-            localStorage.setItem(`finalID${i}`, Data[Id].inStock);
+            localStorage.setItem(`finalID${i}`, JSON.stringify(Data[Id].inStock).split('"')[1]);
         }
     }
     if(Data[Id] === Data[i] && JSON.stringify(inPurchased).split('"')[1] === "1"){   
@@ -335,7 +333,7 @@ for (let i=0; i <= Data.length; i++){
     }
 }
 }
-
-// Exporting the data to the "middle page"
 export const theFinalData = Data;
-
+export const theFinalNumber = localStorage.getItem("finalNumber")
+export const theFinalPrice = localStorage.getItem("myFinalPrice")
+export const finalSum = Number(localStorage.getItem("sumation"))

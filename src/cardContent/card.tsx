@@ -22,7 +22,7 @@ const navigate = useNavigate()
     const image = JSON.stringify(localStorage.getItem("myArrThree")).split(`"`)[1];
     const imaged = image.substring(0, image.length)
     const inStock = JSON.stringify(localStorage.getItem("myArrSix")).split(`"`)[1];
-    let inStocked = Number(inStock.substring(0, inStock.length))
+    const inStocked = Number(inStock.substring(0, inStock.length))
 
     // setting "myStock" to "1" if the products are avaliable or to "0" if they are not.
     let[myStock, usemystock] = useState(inStocked === 0 ? 0 : 1)
@@ -92,3 +92,4 @@ export const inPurchased = localStorage.getItem("isPurchased")
 
 localStorage.setItem("purchesed", "0") 
 localStorage.setItem("isPurchased", "0")
+

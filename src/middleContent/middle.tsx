@@ -27,11 +27,13 @@ type data = {
 
 const myData: any[][] = [];
 myData.push(theFinalData);
+
 let myFirstValue = 0;
 let mySecondValue = 0;
 
 let firstPeriodValue = 0;
 let secondPeriodValue = 0;
+
 
 export const MiddleContent = () => {
  
@@ -48,7 +50,6 @@ export const MiddleContent = () => {
   const [periodicSort, useperiodicsort] = useState(0);
   const [showOrHide, useshoworHide] = useState(true)
   const [mymessage, usemymessage] = useState([""])
-
 
 
   // All option
@@ -92,6 +93,7 @@ export const MiddleContent = () => {
     hideEverything()
     usemyprice(true)
   }
+
 
   // Inside period Options
   const PeriodOptionOne = () => {
@@ -205,8 +207,8 @@ export const MiddleContent = () => {
   const eraseEverything = () => {
     localStorage.clear()
     window.location.reload();
-
   }
+
 return(
   <div>
     {/* The main Four Options */}
@@ -261,27 +263,25 @@ return(
 
   {/* To render the page!*/}
   {allshow && <>{useallshow(false)}</>}
-
 <Container className="" style={{ marginTop: 10+"px"}}>
   <div className="row theRow">  
  {myData[0]
  // To sort the cards according to their period
  .sort((a, b) => periodicSort * (Number(a.period) - Number(b.period)))
-
   // To sort the cards alphabetically
  .sort((a, b) => (alphabeticalSort * a.name.localeCompare(b.name)))
-
  .filter( data => 
   // To display the cards according to their price
-  myPrice ? (Number(data.price) > myFirstValue) && (Number(data.price) < mySecondValue) :
-  (Number(data.price) > 0) && (Number(data.price) < 10000) &&
-  
+  myPrice ? (Number(data.price) > myFirstValue) && (Number(data.price) < mySecondValue) :(Number(data.price) > 0) && (Number(data.price) < 10000) &&
   // To display the cards according to their period 
-  myPeriod ? (Number(data.period) > firstPeriodValue) && (Number(data.period) < secondPeriodValue) :
-  (Number(data.period) > 0) && (Number(data.period) < 10000))
+  myPeriod ? (Number(data.period) > firstPeriodValue) && (Number(data.period) < secondPeriodValue) :(Number(data.period) > 0) && (Number(data.period) < 10000) 
 
+  )
+  
+  
  // To display the cards...
- .map((a:data, b) => (
+ .map((a:data, b:number) => (
+
   // Some Adjusments from Bootstrap
     <div className="col-2" key={"divOne "+b}>
      {<div className="card " key={"divTwo "+b}>
@@ -293,21 +293,18 @@ return(
           <img className="img-thumbnail rounded" style={{justifyContent: "flex"}} src={`${a.image}`} />
           {/* Styling the paragraphs and displaying them... */}
           <p className="card-body text-dark" key={"POne "+b}
-          style={{marginTop: 15+"px", marginBottom: -20+"px",marginLeft:-10+"px",paddingLeft: 10+"px",paddingRight: 0+"px",fontSize:"13px"}}>
+          style={{marginTop: 15+"px", marginBottom: -20+"px", marginLeft:-10+"px", paddingLeft: 10+"px", paddingRight: 0+"px", fontSize:"13px"}}>
           {a.name} 
-          <p key={"PTwo "+b}>Price: {a.price}$ 
-          
+          <p key={"PTwo "+b}>Price: {a.price}$   
           {/* Checking the Released Data */}
           <p key={"PThree "+b} className="text-secondary">{Number(a.period) >= 12 && <p> Released {(Number(a.period) * 0.0833334).toFixed()} years ago </p>}
           <p key={"PFour "+b} className="text-secondary">{Number(a.period) < 12 && Number(a.period) > 0.9 && <p> Released {(Number(a.period)).toFixed()} months ago </p>}
           <p key={"PFive "+b} className="text-secondary">{Number(a.period) < 1 && <p> Released Recently </p>}
-
           {/* Styling and Checking the Availablilities */}
           <p style={{margin: 0, marginTop: -15+"px", backgroundColor:"rgb(255, 49, 49)", width: 80 + "%"}}>{Number(a.inStock) === 0 && 
           <p style={{color: "white"}}>&nbsp;Not available</p>}
           <p style={{margin: 0, backgroundColor:"rgb(49, 142, 255)", width: 100 + "%"}}>{Number(a.inStock) !== 0 && 
           <p style={{ color: "white"}}>&nbsp;{a.inStock} Are available</p>}
-
           </p></p></p></p></p></p></p> 
         </div> 
       </Link>
@@ -339,18 +336,20 @@ return(
           <p style={{marginRight: 5 +"px", marginTop: 17+"px", marginBottom:-7+"px"}}>x{a.purchasedOnes}</p>
 
           {/* To remove an Item */}
-          <button className="myMiniButton" onClick={() =>removeProduct((a.inStock))}>X</button>
+          <button className="myMiniButton" onClick={() =>removeProduct((a.inStock))}></button>
         </div> 
     </div>}    
   </div>))}
   {/* Checking and displaying the buttons of buying or deleting in the side bar */}
   {finalPrice !== 0 ?
    <div style={{display:"flex"}}><button className="myBuyingButton">Buy Now! {finalPrice}$</button>
-   <button className="myErasingButton" onClick={eraseEverything}>Delete Everything!</button> </div> : 
-   <button className="myBuyingButton" style={{display:"flex", margin: "auto",}}>Add Something To Buy!</button>}
+   <button className="myErasingButton" onClick={eraseEverything}>Delete All!</button> </div> : 
+   <Link className="mainOption-opt" to={"/addYourCard"}>
+    <button className="myBuyingButton" style={{display:"flex", margin: "auto"}}>Add Something To sell!</button></Link>}
 
 </div>
 </div>
 </div>
 )
 }
+export const myPeriod = localStorage.getItem("period")

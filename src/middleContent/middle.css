@@ -96,11 +96,13 @@
 
 /* Mini Buttons inside the side bar */
 .myMiniButton{
-    height: 30px;
+    size-adjust: 1px;
+    padding-top: -2px;
     border: 0px;
-    background-color: rgb(255, 255, 255);
-    color: red;
+    background-color: rgb(255, 49, 49);
+    color: rgb(255, 255, 255);
     margin-top: 1.5px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 /* The Two big butons*/
@@ -133,11 +135,14 @@
     margin-top: 10px;
     width: 100px;
     margin-left: 2px;
+    padding-left: 19px;
+    padding-right: 19px;
 }
 
 /* Images Inside the side bar*/
 .myMainImage{
     margin-left: 5px;
+
 }
 
 /* To make the page responsive... */
