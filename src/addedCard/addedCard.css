@@ -1,0 +1,121 @@
+.myForm{
+    display: grid;
+    margin: 0 auto;
+    margin-top: 120px;
+    width: 900px;
+    box-shadow: 2px 2px 5px rgb(104, 104, 104);
+    background-color: rgb(43, 138, 255);
+    height: 600px;
+}
+.myOuterDiv{
+    display: flex;
+    padding-right: 75px;
+    margin-top: -70px;
+    justify-content:space-around;
+}
+
+.myMainPara-para{
+    margin: 0 auto;
+    color: rgb(43, 138, 255);
+    background-color: rgb(214, 233, 250);
+    height: 50px;
+    margin-top: 10px;
+    margin-bottom: -200px;
+    width: 100%;
+    padding-left: 283px;
+    padding-right: 283px;
+    box-shadow: 2px 2px 5px rgb(104, 104, 104);
+    
+
+}
+.paragraph-para{
+    margin-top: 35px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: flex-start;
+    color: white;
+}
+.inputBar-src{
+    width: 140%;
+    height: 40px;
+    border-radius: 13px;
+    border: none;
+    outline-offset: none;
+    padding-left: 10px;
+    outline: none;
+    box-shadow: 2px 2px 5px rgb(110, 110, 110);
+    margin: 0 auto;
+}
+.DescriptioninputBar-src{
+    width: 140%;
+    height: 255px;
+    border-radius: 13px;
+    border: none;
+    outline-offset: none;
+    padding-top: 5px;
+    padding-left: 10px;
+    outline: none;
+    box-shadow: 2px 2px 5px rgb(110, 110, 110);
+    margin: 0 auto;
+
+}
+.theButton{
+    color: rgb(255, 255, 255);
+    background-color: rgb(43, 138, 255);
+    border-radius: 20px;
+    border-color: rgb(255, 255, 255);
+    padding: 7px;
+    width: 100px;
+    height: 40px;
+    display: grid;
+    justify-self: center;
+    margin-top: 10px;
+
+}
+@media(max-width: 920px){
+
+    .myMainPara-para{
+        width: 100%;
+        padding-left: 0;
+        padding-right: 0;
+        box-shadow: 2px 2px 5px rgb(104, 104, 104);
+        
+    
+    }
+    .myOuterDiv{
+        height: 600px;
+        width: 100%;
+        display: grid;
+     
+        
+    }
+    .myForm{
+  
+        margin-top: 120px;
+        width: 80%;
+        height: 800px;
+        margin-bottom: 100px;
+    }
+    .myInnerDiv{
+        width: 100%;
+        margin: 0 auto;
+
+    }
+    .inputBar-src{
+        width: 140%;
+        height: 35px;
+   
+    }
+    .mySecondaryDiv{
+        width: 100%;
+        margin: 0 auto;
+       
+
+       
+    }
+    .myButton{
+        margin-top: 200px;
+    }
+
+}
+

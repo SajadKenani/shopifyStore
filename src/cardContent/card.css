@@ -1,0 +1,134 @@
+/* The main outer div */
+.myOuterDiv-div{
+    background-color: rgb(49, 142, 255);
+    width: 800px;
+    border-radius: 20px;
+    border: 5px solid white;
+    margin: 0 auto;
+    margin-top: 100px;
+    display: grid;
+    padding-bottom: 30px;
+    margin-bottom: 350px;
+}
+
+/* The main inner div */
+.myInnterDiv-div{
+    display: flex;
+    justify-content: center;
+    width: 50%;
+    margin: 0 auto;
+}
+
+.cardImage-img{
+    width: 100%;
+    height: 100%;
+    margin-top: 15%;
+    box-shadow: 2px 2px 10px rgb(60, 60, 60);
+    margin-left: -175px;
+}
+
+.myPara-para{
+    margin-top: 50px;
+    margin-bottom: -50px;
+    color: white;
+
+}
+.myButton{
+    border: 3px solid rgb(255, 255, 255);
+    border-radius: 20px;
+    padding-top: 3px;
+    color: rgb(255, 255, 255);
+    background-color: rgb(49, 142, 255);
+    width: 130px;
+    margin-top: 25px;
+    height: 40px;
+}
+.goBackButton{
+    border: 3px solid rgb(255, 255, 255);
+    background-color: rgb(49, 142, 255);
+    border-radius: 20px;
+    padding-top: 3px;
+    color: rgb(255, 255, 255);
+    width: 100px;
+    margin-top: 25px;
+    margin: 0 auto;
+    margin-left: 50px;
+}
+
+/* It will appear if the product in Not available */
+.myUnAvailableButton{
+    margin-top: 20px;
+    border-radius: 20px;
+    color: rgb(255, 255, 255);
+    background-color: rgb(255, 49, 49);
+    width: 200px;
+    height: 35px;
+    border: none;
+    margin-bottom: 5px;
+}
+.adjustArrows-div{
+    margin: 0 auto;
+    margin-top: 50px;
+    margin-bottom: 30px;
+    margin-right: -170px;
+    background-color: rgb(49, 142, 255);
+
+}
+.arrowButton-btn{
+    height: 50px;
+    margin: 20px 0px;
+    padding: -2px 2px;
+    border: none;
+    background-color: rgb(49, 142, 255);
+    color: white;
+
+}
+
+.myVeryInnerDiv-div{
+    display:table;
+    margin-left: 50px;
+}
+
+
+.tweakingDiv-div{
+    width: 700px;
+    margin: 0 auto;
+}
+
+.description-para{
+  margin-top: 20px;
+  color: white;
+  width: 300px;
+  font-kerning: auto;
+  display: flex;
+}
+
+/* Tho make things responsive */
+@media (max-width: 800px){
+    .tweakingDiv-div{
+        display: flex;
+        width: 0;
+    }
+    .myOuterDiv-div{
+        width: 100%;
+        margin: 0 auto;
+        margin-left: -15px;
+        margin-top: 120px;
+    }
+    .myInnterDiv-div{
+        display: grid;
+        width: 70%;
+        margin-left: -10px;
+    }
+    .cardImage-img{
+        margin: 0 auto;
+        justify-content: center;
+        width: 100%;
+        margin-left: 40px;
+    }
+    .adjustArrows-div{
+        margin: 0 auto;
+        padding: 40px;
+        margin-left: -60px;
+    }
+}
