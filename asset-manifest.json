@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "/shopifyStore/static/css/main.f367b533.css",
+    "main.js": "/shopifyStore/static/js/main.faf77c6e.js",
+    "static/js/787.28cb0dcd.chunk.js": "/shopifyStore/static/js/787.28cb0dcd.chunk.js",
+    "static/media/RWUphA.png": "/shopifyStore/static/media/RWUphA.d217b2a1d973bb185e47.png",
+    "static/media/headphone-transparent-background.png": "/shopifyStore/static/media/headphone-transparent-background.54add6f13755022c568c.png",
+    "static/media/MousePad.jpg": "/shopifyStore/static/media/MousePad.b83f143cd745f3921fe2.jpg",
+    "static/media/HeadPhones.jpg": "/shopifyStore/static/media/HeadPhones.c784f6bf382c6d94a10d.jpg",
+    "static/media/mobile.jpg": "/shopifyStore/static/media/mobile.91740ccbe05ee1462989.jpg",
+    "static/media/keynoard.jpg": "/shopifyStore/static/media/keynoard.03e99092b536a33b6757.jpg",
+    "static/media/airpods.png": "/shopifyStore/static/media/airpods.20fe9e98043505ca2672.png",
+    "static/media/charger.jpg": "/shopifyStore/static/media/charger.ecb8398f9fc20a42de8a.jpg",
+    "static/media/Monitor.webp": "/shopifyStore/static/media/Monitor.083d19b45117e04fce52.webp",
+    "static/media/tv-flat.jpg": "/shopifyStore/static/media/tv-flat.48ec08d1c36e8c6adff9.jpg",
+    "static/media/41GSkwIhASL._AC_UF894,1000_QL80_.jpg": "/shopifyStore/static/media/41GSkwIhASL._AC_UF894,1000_QL80_.2b1e10edcbf2d01aeef1.jpg",
+    "static/media/computer.jpg": "/shopifyStore/static/media/computer.579f17c37d95f738519b.jpg",
+    "index.html": "/shopifyStore/index.html",
+    "main.f367b533.css.map": "/shopifyStore/static/css/main.f367b533.css.map",
+    "main.faf77c6e.js.map": "/shopifyStore/static/js/main.faf77c6e.js.map",
+    "787.28cb0dcd.chunk.js.map": "/shopifyStore/static/js/787.28cb0dcd.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f367b533.css",
+    "static/js/main.faf77c6e.js"
+  ]
+}
