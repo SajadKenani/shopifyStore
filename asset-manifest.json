@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/shopifyStore/static/css/main.f367b533.css",
-    "main.js": "/shopifyStore/static/js/main.faf77c6e.js",
+    "main.js": "/shopifyStore/static/js/main.4a9dbcaf.js",
     "static/js/787.28cb0dcd.chunk.js": "/shopifyStore/static/js/787.28cb0dcd.chunk.js",
     "static/media/RWUphA.png": "/shopifyStore/static/media/RWUphA.d217b2a1d973bb185e47.png",
     "static/media/headphone-transparent-background.png": "/shopifyStore/static/media/headphone-transparent-background.54add6f13755022c568c.png",
@@ -17,11 +17,11 @@
     "static/media/computer.jpg": "/shopifyStore/static/media/computer.579f17c37d95f738519b.jpg",
     "index.html": "/shopifyStore/index.html",
     "main.f367b533.css.map": "/shopifyStore/static/css/main.f367b533.css.map",
-    "main.faf77c6e.js.map": "/shopifyStore/static/js/main.faf77c6e.js.map",
+    "main.4a9dbcaf.js.map": "/shopifyStore/static/js/main.4a9dbcaf.js.map",
     "787.28cb0dcd.chunk.js.map": "/shopifyStore/static/js/787.28cb0dcd.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.f367b533.css",
-    "static/js/main.faf77c6e.js"
+    "static/js/main.4a9dbcaf.js"
   ]
 }
