@@ -1,16 +1,12 @@
-import { useState } from "react"
-
 import "./upper.css"
 import "../middleContent/middle"
 import { useNavigate } from "react-router-dom"
 import {theFinalData} from "../middleContent/data"
-// The search engine has not been built yet
+import React from "react"
+
 
 export const UpperContent = () => {
   const navigate = useNavigate();
-
-  
-
   
   //To go back to the main page wherever you were.
   const goBack = () => {

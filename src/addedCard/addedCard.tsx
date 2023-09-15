@@ -5,6 +5,7 @@ import * as yup from "yup";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { finalPrice, finalName, finalImage, finalAvaliable, finalDescription } from "../middleContent/data";
+import React from "react";
 
 const schema = yup.object().shape({
     

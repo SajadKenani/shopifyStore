@@ -1,5 +1,4 @@
 import {finishedName, finishedPrice, finishedImage, finishedPeriod, finishedAvailable, finishedDescription} from "../addedCard/addedCard";
-import stringReplace  from "react-string-replace"
 import { PurchesedNumber,  number, inPurchased} from "../cardContent/card";
 import HeadsetImage from "./images/headphone-transparent-background.png";
 import LaptopImage from "./images/RWUphA.png";
@@ -291,6 +290,7 @@ const data:myData[] = [
     description: "Experience Wireless Freedom with AirPods - Seamless connectivity, crystal-clear sound, and effortless charging in a sleek, compact design. Elevate your audio journey now!",
 },  
 ]
+
 let myImportedData = ():myData[] => {
     // To add the new products that were added from "add page"
     let myArray:myData[] = []

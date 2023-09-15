@@ -2,6 +2,7 @@ import "./card.css";
 import {myArray} from "../middleContent/middle"
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import React from "react";
 
 export const Card = () => {
 const navigate = useNavigate()
