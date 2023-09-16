@@ -13,12 +13,12 @@ function App() {
  <Router>
   <UpperContent />
   <Routes>
-    <Route path='/shopifyStore' element={
+    <Route path='/shopifyStore/' element={
     <>
     <MiddleContent />
     </>}/>
-    <Route path="/card" element={<Card />}/>
-    <Route path="/addYourCard" element={<AddedCard />}/>
+    <Route path="shopifyStore/card" element={<Card />}/>
+    <Route path="shopifyStore/addYourCard" element={<AddedCard />}/>
   </Routes>
   <Footer />
 </Router>
