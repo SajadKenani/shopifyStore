@@ -106,7 +106,7 @@ return(
 
 <div style={{display:"flex", marginTop:100+"px"}}>
 <button type="submit" className="theButton">Post!</button>
-<button onClick={() =>navigate("/")} className="theButton">Cancel</button>
+<button onClick={() =>navigate("/shopifyStore/")} className="theButton">Cancel</button>
 </div>
 
 </div>
