@@ -13,7 +13,7 @@ function App() {
  <Router>
   <UpperContent />
   <Routes>
-    <Route path='/shopifyStore/' element={
+    <Route path='/shopifyStore' element={
     <>
     <MiddleContent />
     </>}/>

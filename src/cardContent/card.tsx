@@ -42,7 +42,7 @@ const navigate = useNavigate()
 
     // to go back to the main page and display the new changes on the main page
     const goBack = () => {
-    navigate("/shopifyStore")
+    navigate("/shopifyStore/")
     window.location.reload();}
     const [isPurchesed, useisPurchesed] = useState(false);
     const result = myStock * priced;
@@ -81,7 +81,7 @@ return (
 
         </div>}  
 
-        {isPurchesed === false && <button className="goBackButton" onClick={() => navigate("/")}>Go Back</button>}
+        {isPurchesed === false && <button className="goBackButton" onClick={() => navigate("/shopifyStore/")}>Go Back</button>}
         {/* To check if you successfuly bought the product */}
         {isPurchesed === true  && <button className="myButton" onClick={goBack}>Go Back</button>}
         {isPurchesed && <p style={{color:"white"}}> {myStock} added to your cart. </p>}

@@ -49,7 +49,7 @@ const gottenDescription = (event: any) => {
 } 
 const submitHandler = () => {
 // To go to the main page
-navigate("/shopifyStore")
+navigate("/shopifyStore/")
 
 // reloading the page so the new changes being displayed
 window.location.reload();
