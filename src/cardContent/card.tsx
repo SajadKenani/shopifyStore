@@ -42,7 +42,7 @@ const navigate = useNavigate()
 
     // to go back to the main page and display the new changes on the main page
     const goBack = () => {
-    navigate("/")
+    navigate("/shopifyStore")
     window.location.reload();}
     const [isPurchesed, useisPurchesed] = useState(false);
     const result = myStock * priced;
