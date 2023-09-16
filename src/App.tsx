@@ -17,8 +17,8 @@ function App() {
     <>
     <MiddleContent />
     </>}/>
-    <Route path="shopifyStore/card" element={<Card />}/>
-    <Route path="shopifyStore/addYourCard" element={<AddedCard />}/>
+    <Route path="/card" element={<Card />}/>
+    <Route path="/addYourCard" element={<AddedCard />}/>
   </Routes>
   <Footer />
 </Router>
